@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:medverse/Custom_Widgets/my_text_filed.dart';
-import 'package:medverse/login.dart';
+import 'package:medverse/login/custom%20widget/my_text_filed.dart';
+import 'package:medverse/login/login.dart';
 
 class InputField extends StatelessWidget {
   final String labelText;

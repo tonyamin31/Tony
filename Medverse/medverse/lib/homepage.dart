@@ -3,8 +3,9 @@ import 'package:medverse/Appointment.dart';
 
 import 'package:medverse/Records.dart';
 import 'package:medverse/search.dart';
-import 'Custom_Widgets/CustomFloating.dart';
-import 'Custom_Widgets/footer3.dart';
+
+import 'Custom_Widgets/naviagtion/CustomFloating.dart';
+import 'Custom_Widgets/naviagtion/footer3.dart';
 import 'Custom_Widgets/reminder.dart';
 import 'Custom_Widgets/slider.dart';
 

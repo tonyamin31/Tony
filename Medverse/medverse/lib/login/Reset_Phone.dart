@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:medverse/Reset_Email.dart';
-import 'package:medverse/Verfication.dart';
+import 'package:medverse/login/Reset_Email.dart';
+import 'package:medverse/login/Verfication.dart';
 //import 'package:grad_proj/widgets/buttons.dart';
 
 class resetpasswordphone extends StatelessWidget {

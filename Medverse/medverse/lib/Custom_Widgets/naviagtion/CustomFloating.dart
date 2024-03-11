@@ -1,6 +1,7 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
+import 'package:medverse/Profile.dart';
 
 import 'package:medverse/search.dart';
 
@@ -23,10 +24,10 @@ class _CustomFloatingState extends State<CustomFloating> {
           // _isActive = !_isActive; // Toggle active state
         });
 
-       // Navigator.push(
-         // context,
-          //MaterialPageRoute(builder: (context) => ),
-        //);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => profile()),
+        );
       },
       child: Icon(
         Icons.person,

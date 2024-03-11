@@ -40,7 +40,6 @@ dependencies:
   flutter_jap_icons: ^0.2.1
   pinput: ^4.0.0
   appbar_animated: ^0.0.3
-  
 
 dev_dependencies:
   flutter_test:
@@ -77,6 +76,7 @@ flutter:
     - assets/images/appointment.png
     - assets/images/fastambu.png
     - assets/images/ziad.png
+    - assets/images/pin.png
 
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

@@ -3,9 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_jap_icons/medical_icons_icons.dart';
-import 'package:medverse/Custom_Widgets/footer3.dart';
+import 'package:medverse/Custom_Widgets/naviagtion/footer3.dart';
 
-import 'Custom_Widgets/CustomFloating.dart';
+import 'Custom_Widgets/naviagtion/CustomFloating.dart';
 
 class search extends StatelessWidget {
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:medverse/login.dart';
+import 'package:medverse/login/login.dart';
 
 class newpass extends StatelessWidget {
   @override

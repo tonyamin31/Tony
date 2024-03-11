@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:medverse/Reset_Email.dart';
-import 'package:medverse/SignUp.dart';
+import 'package:medverse/login/Reset_Email.dart';
+import 'package:medverse/login/SignUp.dart';
 import 'package:medverse/homepage.dart';
 
 //import 'package:grad_proj/widgets/buttons.dart';

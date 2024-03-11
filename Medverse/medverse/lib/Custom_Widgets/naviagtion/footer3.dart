@@ -1,6 +1,7 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:medverse/Appointment.dart';
 import 'package:medverse/homepage.dart';
 
 var iconlist = [
@@ -46,6 +47,10 @@ class _Footer3State extends State<Footer3> {
           );
         } else if (index == 1) {
           // Handle calendar button click
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => app()),
+          );
           // Add your logic here
         } else if (index == 2) {
           // Handle hospital button click

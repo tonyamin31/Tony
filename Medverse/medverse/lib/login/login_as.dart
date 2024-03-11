@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:medverse/login.dart';
-import 'Custom_Widgets/buttons.dart';
+import 'package:medverse/login/login.dart';
+import '../Custom_Widgets/buttons.dart';
 
 class login_as extends StatelessWidget {
   const login_as({super.key});

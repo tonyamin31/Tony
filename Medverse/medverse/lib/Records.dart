@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'Custom_Widgets/CustomFloating.dart';
-import 'Custom_Widgets/footer3.dart';
+
+import 'Custom_Widgets/naviagtion/CustomFloating.dart';
+import 'Custom_Widgets/naviagtion/footer3.dart';
 
 class records extends StatelessWidget {
   @override

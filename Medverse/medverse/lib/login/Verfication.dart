@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:medverse/NewPass.dart';
+import 'package:medverse/login/NewPass.dart';
 import 'package:pinput/pinput.dart';
 
 class verfcode extends StatelessWidget {
