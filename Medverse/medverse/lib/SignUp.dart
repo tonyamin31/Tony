@@ -72,66 +72,107 @@ class signup extends StatelessWidget {
                   SizedBox(height: 20.0),
 
                   // Full Name textfield
-                  MEDTextFormFiled(
-                    controller: fullNameController,
-                    title: 'Full Name',
-                    hintText: 'Enter your name',
-                    validation: (value) {
-                      if (value!.length < 3) {
-                        return 'this field is required';
-                      }
-                    },
+                  TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      labelText: 'Full Name',
+                      hintText: 'Enter your Name',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
                   ),
+
+                  // MEDTextFormFiled(
+                  //   controller: fullNameController,
+                  //   title: 'Full Name',
+                  //   hintText: 'Enter your name',
+                  //   validation: (value) {
+                  //     if (value!.length < 3) {
+                  //       return 'this field is required';
+                  //     }
+                  //   },
+                  // ),
 
                   const SizedBox(
                       height: 20.0), // Add some space between the text fields
 
-                  MEDTextFormFiled(
-                    controller: emailController,
-                    title: 'E-mail',
-                    hintText: 'Enter your email',
-                    validation: (value) {
-                      if (value!.length < 5) {
-                        return 'this filed is required';
-                      } else if (!value.contains('@')) {
-                        return 'Please type valid email';
-                      }
-                    },
+                  TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      labelText: 'E-mail',
+                      hintText: 'Enter your E-mail',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
                   ),
+
+                  // TextField(
+                  //   obscureText: true,
+                  //   decoration: InputDecoration(
+                  //     labelText: 'E-mail',
+                  //     hintText: 'Enter your E-mail',
+                  //     border: OutlineInputBorder(
+                  //       borderRadius: BorderRadius.circular(10.0),
+                  //     ),
+                  //   ),
+                  // ),
 
                   const SizedBox(height: 20.0),
 
                   // Password textfield
-
-                  MEDTextFormFiled(
-                    controller: passwordController,
-                    title: 'Password',
-                    validation: (password) {
-                      if (password!.length < 3) {
-                        return 'this filed is required';
-                      }
-                    },
-                    isPassword: true,
-                    hintText: 'please enter password',
+                  TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                      hintText: 'Enter your Password',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
                   ),
+
+                  // MEDTextFormFiled(
+                  //   controller: passwordController,
+                  //   title: 'Password',
+                  //   validation: (password) {
+                  //     if (password!.length < 3) {
+                  //       return 'this filed is required';
+                  //     }
+                  //   },
+                  //   isPassword: true,
+                  //   hintText: 'please enter password',
+                  // ),
 
                   SizedBox(height: 10.0),
 
-                  MEDTextFormFiled(
-                    decoration: OutlineInputBorder,
-                    controller: cpasswordController,
-                    title: "Confirm Password",
-                    isPassword: true,
-                    validation: (confirmPassword) {
-                      if (confirmPassword!.length < 3) {
-                        return 'this filed is required';
-                      } else if (cpasswordController.text !=
-                          passwordController.text) {
-                        return 'password not match';
-                      }
-                    },
-                    hintText: 'confirm password',
+                  TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      labelText: 'Confirm Password',
+                      hintText: 'Confirm your Password',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
                   ),
+
+                  // MEDTextFormFiled(
+                  //   decoration: OutlineInputBorder,
+                  //   controller: cpasswordController,
+                  //   title: "Confirm Password",
+                  //   isPassword: true,
+                  //   validation: (confirmPassword) {
+                  //     if (confirmPassword!.length < 3) {
+                  //       return 'this filed is required';
+                  //     } else if (cpasswordController.text !=
+                  //         passwordController.text) {
+                  //       return 'password not match';
+                  //     }
+                  //   },
+                  //   hintText: 'confirm password',
+                  // ),
 
                   SizedBox(height: 10.0),
 
@@ -219,7 +260,6 @@ class signup extends StatelessWidget {
                   // Sign Up button
                   ElevatedButton(
                     onPressed: () {
-                      
                       Navigator.push(context,
                           MaterialPageRoute(builder: ((context) => login())));
                       // Add your logic here

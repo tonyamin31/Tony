@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medverse/Appointment.dart';
 
 import 'package:medverse/Records.dart';
 import 'package:medverse/search.dart';
@@ -104,6 +105,8 @@ class HomePage extends StatelessWidget {
                   const SizedBox(width: 8.0),
                   GestureDetector(
                     onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: ((context) => app())));
                       // Add your button onPressed logic here
                       print('Button tapped');
                     },

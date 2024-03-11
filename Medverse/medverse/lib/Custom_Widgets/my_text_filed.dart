@@ -27,15 +27,15 @@ class _AMITTextFormFiledState extends State<MEDTextFormFiled> {
   Widget build(BuildContext context) {
     return Row(
       children: [
+        Text("${widget.title} :"),
+        SizedBox(
+          width: 5,
+        ),
         Expanded(
           child: TextFormField(
             controller: widget.controller,
             obscureText: showPassword,
             decoration: InputDecoration(
-              // Prefix icon with the title
-              prefixIcon: Text(
-                "${widget.title} ",
-              ),
               suffixIcon: !widget.isPassword
                   ? null
                   : IconButton(

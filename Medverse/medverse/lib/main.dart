@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:medverse/HomePage.dart';
+import 'package:medverse/SignUp.dart';
+import 'package:medverse/Verfication.dart';
 import 'package:medverse/login_as.dart';
 import 'package:medverse/search.dart';
 
