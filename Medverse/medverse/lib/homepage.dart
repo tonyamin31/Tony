@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:medverse/Appointment.dart';
 
 import 'package:medverse/Records.dart';
+
 import 'package:medverse/search.dart';
 
 import 'Custom_Widgets/naviagtion/CustomFloating.dart';
 import 'Custom_Widgets/naviagtion/footer3.dart';
 import 'Custom_Widgets/reminder.dart';
 import 'Custom_Widgets/slider.dart';
+import 'prcs/prcs.dart';
 
 void main() {
   runApp(const HomePage());
@@ -22,11 +23,11 @@ class HomePage extends StatelessWidget {
         home: Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF199A8E),
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(20),
                 bottomRight: Radius.circular(20))),
-        title: Column(
+        title: const Column(
           mainAxisAlignment: MainAxisAlignment
               .start, // Positions the elements in the middle of the column
           crossAxisAlignment:
@@ -102,115 +103,83 @@ class HomePage extends StatelessWidget {
               ),
               const SizedBox(height: 50.0),
               Column(children: [
-                Row(children: [
-                  const SizedBox(width: 8.0),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: ((context) => app())));
-                      // Add your button onPressed logic here
-                      print('Button tapped');
-                    },
-                    child: Container(
-                      width: 125.86,
-                      height: 147.59,
-                      decoration: ShapeDecoration(
-                        color: const Color(0x7FB0EBE5),
-                        shape: RoundedRectangleBorder(
-                          side: const BorderSide(
-                              width: 3, color: Color(0xFFB0EBE5)),
-                          borderRadius: BorderRadius.circular(15),
+                Padding(
+                  padding: EdgeInsets.only(left: 60),
+                  child: Row(children: [
+                    const SizedBox(width: 8.0),
+                    GestureDetector(
+                      onTap: () {
+                        // Add your button onPressed logic here
+                        print('Button tapped');
+                      },
+                      child: Container(
+                        width: 125.86,
+                        height: 147.59,
+                        decoration: ShapeDecoration(
+                          color: const Color(0x7FB0EBE5),
+                          shape: RoundedRectangleBorder(
+                            side: const BorderSide(
+                                width: 3, color: Color(0xFFB0EBE5)),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Image.asset(
+                              'assets/images/appointment.png',
+                              width: 80,
+                              height: 80,
+                            ),
+                            const SizedBox(height: 10),
+                            const Text(
+                              'Appointment',
+                              style: TextStyle(color: Colors.black),
+                            ),
+                          ],
                         ),
                       ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Image.asset(
-                            'assets/images/appointment.png',
-                            width: 80,
-                            height: 80,
-                          ),
-                          const SizedBox(height: 10),
-                          const Text(
-                            'Appointment',
-                            style: TextStyle(color: Colors.black),
-                          ),
-                        ],
-                      ),
                     ),
-                  ),
-                  const SizedBox(width: 10),
-                  GestureDetector(
-                    onTap: () {
-                      // Add your button onPressed logic here
-                      print('Button tapped');
-                    },
-                    child: Container(
-                      width: 125.86,
-                      height: 147.59,
-                      decoration: ShapeDecoration(
-                        color: const Color(0x7FB0EBE5),
-                        shape: RoundedRectangleBorder(
-                          side: const BorderSide(
-                              width: 3, color: Color(0xFFB0EBE5)),
-                          borderRadius: BorderRadius.circular(15),
+                    const SizedBox(width: 20),
+                    GestureDetector(
+                      onTap: () {
+                        // Add your button onPressed logic here
+                        print('Button tapped');
+                      },
+                      child: Container(
+                        width: 125.86,
+                        height: 147.59,
+                        decoration: ShapeDecoration(
+                          color: const Color(0x7FB0EBE5),
+                          shape: RoundedRectangleBorder(
+                            side: const BorderSide(
+                                width: 3, color: Color(0xFFB0EBE5)),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Image.asset(
+                              'assets/images/medications.png',
+                              width: 80,
+                              height: 80,
+                            ),
+                            const SizedBox(height: 10),
+                            const Text(
+                              'Medications',
+                              style: TextStyle(color: Colors.black),
+                            ),
+                          ],
                         ),
                       ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Image.asset(
-                            'assets/images/medications.png',
-                            width: 80,
-                            height: 80,
-                          ),
-                          const SizedBox(height: 10),
-                          const Text(
-                            'Medications',
-                            style: TextStyle(color: Colors.black),
-                          ),
-                        ],
-                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      // Add your button onPressed logic here
-                      print('Button tapped');
-                    },
-                    child: Container(
-                      width: 125.86,
-                      height: 147.59,
-                      decoration: ShapeDecoration(
-                        color: const Color(0x7FB0EBE5),
-                        shape: RoundedRectangleBorder(
-                          side: const BorderSide(
-                              width: 3, color: Color(0xFFB0EBE5)),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Image.asset(
-                            'assets/images/healthplan.png',
-                            width: 80,
-                            height: 80,
-                          ),
-                          const SizedBox(height: 10),
-                          const Text(
-                            'Health plan',
-                            style: TextStyle(color: Colors.black),
-                          ),
-                        ],
-                      ),
+                    const SizedBox(
+                      width: 10,
                     ),
-                  ),
-                ]),
-                const SizedBox(height: 10.0),
+                  ]),
+                ),
+                const SizedBox(height: 20.0),
                 Row(
                   children: [
                     Column(
@@ -219,6 +188,10 @@ class HomePage extends StatelessWidget {
                           const SizedBox(width: 8.0),
                           GestureDetector(
                             onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => viewbutton()));
                               // Add your button onPressed logic here
                               print('Button tapped');
                             },

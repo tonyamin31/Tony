@@ -8,16 +8,20 @@ class profile extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-          appBar: CAppBar(PageName: 'Profile'),
+            //appBar: CAppBar(PageName: 'Profile'),
             body: Center(
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
           Column(
+            
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Center(
-                child: Container(
+                child: 
+                
+                Container(
+                  
                   width: 500,
                   height: 300,
                   color: Color(0xFF00433C),

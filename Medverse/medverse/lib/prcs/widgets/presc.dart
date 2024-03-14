@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'medicine.dart';
 
-
 class presc extends StatelessWidget {
   presc({
     super.key,

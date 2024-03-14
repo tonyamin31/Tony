@@ -9,8 +9,15 @@ class SecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          backgroundColor: Color(0xFF199A8E),
+          title: Column(
+            mainAxisAlignment: MainAxisAlignment
+                .center, // Positions the elements in the middle of the column
+            crossAxisAlignment: CrossAxisAlignment.start,
+          )),
       body: Padding(
-          padding: EdgeInsets.only(top: 66.0, right: 30, left: 30),
+          padding: EdgeInsets.only(top: 20.0, right: 30, left: 30),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             const Divider(

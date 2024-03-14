@@ -23,7 +23,10 @@ class CAppBar extends StatelessWidget implements PreferredSizeWidget {
                 CrossAxisAlignment.start, // Aligns the text to the left
             children: [
               Row(
-                children: [Text("$PageName", style: TextStyle(fontSize: 20))],
+                children: [
+                  Text("$PageName",
+                      style: TextStyle(fontSize: 20, color: Colors.white))
+                ],
               ),
             ]));
   }
