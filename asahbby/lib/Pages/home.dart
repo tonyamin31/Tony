@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          // Add your onTap behavior here
+                 
                           Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -62,13 +62,11 @@ class _HomePageState extends State<HomePage> {
                         child: Image.asset(
                           'assets/images/LOGO.png',
                           width: 80,
-                          // Add any other properties you need for the image
+                      
                         ),
                       )
                     ]),
               ),
-              ///////////////////////مش قادر اعرف ايه لازمتها بس من غيرها الكود مش بيشتغل///////////////////
-
               Padding(
                 padding: const EdgeInsets.only(top: 150),
                 child: Column(
@@ -92,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                                   builder: (context) => SecondRoute(),
                                 ),
                               );
-                              // Add your button tap behavior here
+                            
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor:

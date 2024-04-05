@@ -23,20 +23,20 @@ class SecondRoute extends StatelessWidget {
                 builder: (BuildContext context) {
                   return AlertDialog(
                     backgroundColor:
-                        Color.fromARGB(255, 51, 38, 117), // لون خلفية الحوار
+                        Color.fromARGB(255, 51, 38, 117),
                     shape: RoundedRectangleBorder(
                       borderRadius:
-                          BorderRadius.circular(10.0), // تعديل حجم الحدود هنا
+                          BorderRadius.circular(10.0),
                       side: BorderSide(
                           color: Color.fromARGB(255, 98, 83, 184),
-                          width: 3.0), // لون وعرض الحدود
+                          width: 3.0), 
                     ),
                     title: Text('If you leave, The game will be lost',
                         style: TextStyle(
                           color: Color.fromARGB(255, 251, 167, 42),
                           fontWeight: FontWeight.bold,
                           fontFamily: 'MarheyVariableFont',
-                        )), // لون النص
+                        )),
                     actions: <Widget>[
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -50,14 +50,14 @@ class SecondRoute extends StatelessWidget {
                             child: TextButton(
                               onPressed: () {
                                 Navigator.of(context)
-                                    .pop(false); // بقاء في الصفحة
+                                    .pop(false); 
                               },
                               child: Text('Stay',
                                   style: TextStyle(
                                     color: Colors.lightGreen,
                                     fontFamily: 'MarheyVariableFont',
                                     fontWeight: FontWeight.bold,
-                                  )), // لون الزر
+                                  )), 
                             ),
                           ),
                           SizedBox(
@@ -72,7 +72,7 @@ class SecondRoute extends StatelessWidget {
                             child: TextButton(
                               onPressed: () {
                                 Navigator.of(context)
-                                    .pop(true); // العودة من الصفحة
+                                    .pop(true); 
                               },
                               child: Text(
                                 'Leave',
@@ -123,7 +123,7 @@ class SecondRoute extends StatelessWidget {
                           ),
                           GestureDetector(
                             onTap: () {
-                              // Add your onTap behavior here
+                           
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -133,7 +133,7 @@ class SecondRoute extends StatelessWidget {
                             child: Image.asset(
                               'assets/images/LOGO.png',
                               width: 80,
-                              // Add any other properties you need for the image
+                           
                             ),
                           )
                         ]),

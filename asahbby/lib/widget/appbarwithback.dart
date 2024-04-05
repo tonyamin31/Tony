@@ -15,8 +15,7 @@ class backTop_Of_Page extends StatelessWidget {
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         GestureDetector(
           onTap: () {
-            // Add your menu icon tap behavior here
-            // For example, you can open a drawer or show a modal
+          
             Navigator.pop(context);
           },
           child: Container(
@@ -37,7 +36,7 @@ class backTop_Of_Page extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            // Add your onTap behavior here
+        
             Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -47,7 +46,7 @@ class backTop_Of_Page extends StatelessWidget {
           child: Image.asset(
             'assets/images/LOGO.png',
             width: 80,
-            // Add any other properties you need for the image
+
           ),
         )
       ]),

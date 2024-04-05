@@ -81,7 +81,7 @@ class Drawerwidget extends StatelessWidget {
                       ],
                     ),
                     Text(
-                      'version 2.2',
+                      'version 2.3',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 10,

@@ -67,119 +67,129 @@ class _CardGameState extends State<CardGame> {
 
   @override
   Widget build(BuildContext context) {
+    double fontSize = MediaQuery.of(context).size.width * 0.05;
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.black,
-      body: Column(children: [
-        backTop_Of_Page(),
-        Column(
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(
-              'Player name: ',
-              style: TextStyle(
-                color: Color.fromARGB(255, 251, 167, 42),
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'MarheyVariableFont',
-              ),
+            backTop_Of_Page(),
+            Column(
+              children: [
+                Text(
+                  'Player name: ',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 251, 167, 42),
+                    fontSize: fontSize,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'MarheyVariableFont',
+                  ),
+                ),
+                Text(
+                  " ${widget.players[currentPlayerIndex].name}",
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 156, 144, 218),
+                    fontSize: fontSize * 1.5,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'MarheyVariableFont',
+                  ),
+                ),
+              ],
             ),
-            Text(
-              " ${widget.players[currentPlayerIndex].name}",
-              style: TextStyle(
-                color: Color.fromARGB(255, 156, 144, 218),
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'MarheyVariableFont',
+            Padding(
+              padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.02),
+              child: Column(
+                children: [
+                  if (currentAsset != null)
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(
+                        currentAsset!,
+                        width: 200,
+                      ),
+                    ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.03,
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.02),
+                      child: Text(
+                        'Card Function:',
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 251, 167, 42),
+                            fontSize: fontSize * 1.2,
+                            fontFamily: 'MarheyVariableFont',
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                  Align(
+                      alignment: Alignment.centerRight,
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                            right: MediaQuery.of(context).size.width * 0.02),
+                        child: Text(
+                          '${currentText ?? ''}',
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 251, 167, 42),
+                              fontSize: fontSize * 1.2,
+                              fontFamily: 'MarheyVariableFont',
+                              fontWeight: FontWeight.bold),
+                        ),
+                      )),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+                  ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          Map<String, String> randomCard = generateRandomCard();
+                          currentAsset = randomCard['asset'];
+                          currentText = randomCard['text'];
+                          changePlayer();
+                        });
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color.fromARGB(255, 251, 167, 42),
+                        minimumSize: Size(200, 50),
+                      ),
+                      child: const Text('Change Card',
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 51, 38, 117),
+                              fontSize: 25,
+                              fontWeight: FontWeight.w800))),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  DashboardPage(players: widget.players)));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromARGB(255, 251, 167, 42),
+                    ),
+                    child: Text(
+                      'Dashboard',
+                      style: TextStyle(
+                          fontSize: fontSize,
+                          color: Color.fromARGB(255, 51, 38, 117),
+                          fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                ],
               ),
             ),
           ],
         ),
-        Padding(
-          padding: EdgeInsets.only(top: 10),
-          child: Column(
-            children: [
-              if (currentAsset != null)
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image.asset(
-                    currentAsset!,
-                    width: 200,
-                  ),
-                ),
-              const SizedBox(
-                height: 30,
-              ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 10),
-                  child: Text(
-                    'Card Function:',
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 251, 167, 42),
-                        fontSize: 24,
-                        fontFamily: 'MarheyVariableFont',
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-              Align(
-                  alignment: Alignment.centerRight,
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 10.0),
-                    child: Text(
-                      '${currentText ?? ''}',
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 251, 167, 42),
-                          fontSize: 24,
-                          fontFamily: 'MarheyVariableFont',
-                          fontWeight: FontWeight.bold),
-                    ),
-                  )),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      Map<String, String> randomCard = generateRandomCard();
-                      currentAsset = randomCard['asset'];
-                      currentText = randomCard['text'];
-                      changePlayer();
-                    });
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 251, 167, 42),
-                    minimumSize: Size(200, 50),
-                  ),
-                  child: const Text('Change Card',
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 51, 38, 117),
-                          fontSize: 25,
-                          fontWeight: FontWeight.w800))),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              DashboardPage(players: widget.players)));
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromARGB(255, 251, 167, 42),
-                ),
-                child: Text(
-                  'Dashboard',
-                  style: TextStyle(
-                      fontSize: 16,
-                      color: Color.fromARGB(255, 51, 38, 117),
-                      fontWeight: FontWeight.w700),
-                ),
-              ),
-              const SizedBox(height: 20),
-            ],
-          ),
-        ),
-      ]),
+      ),
     );
   }
 }

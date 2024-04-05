@@ -1,4 +1,3 @@
-
 import 'package:Asahby/widget/appbarwithback.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +35,7 @@ class _DashboardPageState extends State<DashboardPage> {
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Container(
-                height: MediaQuery.of(context).size.height - 200,
+                height: MediaQuery.of(context).size.height - 270,
                 child: ListView.builder(
                   itemCount: widget.players.length,
                   itemBuilder: (context, index) {
@@ -61,7 +60,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                       decoration: BoxDecoration(
                                         color: Color.fromARGB(255, 51, 38, 117),
                                         borderRadius: BorderRadius.circular(
-                                            8), // Rounded corners
+                                            8),
                                       ),
                                       child: IconButton(
                                         icon: Icon(Icons.remove,
@@ -78,12 +77,12 @@ class _DashboardPageState extends State<DashboardPage> {
                                     ),
                                     SizedBox(
                                         width:
-                                            8), // Add some space between the buttons
+                                            8), 
                                     Container(
                                       decoration: BoxDecoration(
                                         color: Colors.orange,
                                         borderRadius: BorderRadius.circular(
-                                            8), // Rounded corners
+                                            8),
                                       ),
                                       child: IconButton(
                                         icon: Icon(Icons.add,
