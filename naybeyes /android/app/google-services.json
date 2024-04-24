@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "417625451758",
+    "firebase_url": "https://medverse-my-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "medverse-my",
+    "storage_bucket": "medverse-my.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417625451758:android:71c8bf7d3e61f9953ad7ff",
+        "android_client_info": {
+          "package_name": "com.example.naybeyes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXRuSPkackL9xjNixQr53ycMipoUnsgwQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
