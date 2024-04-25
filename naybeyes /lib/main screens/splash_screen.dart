@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:naybeyes/main%20screens/role_selection.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+  const SplashScreen({super.key});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen>
     Future.delayed(const Duration(seconds: 2), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => RoleSelectionPage(),
+          builder: (context) => const RoleSelectionPage(),
         ),
       );
     });

@@ -8,7 +8,7 @@ class PatientCardSearch extends StatelessWidget {
   final String phone;
   final String gender;
 
-  PatientCardSearch({
+  const PatientCardSearch({super.key, 
     required this.name,
     required this.avatar,
     required this.birthdate,
@@ -38,8 +38,8 @@ class PatientCardSearch extends StatelessWidget {
         // Navigator.pushNamed(context, '/doctor/profile');
       },
       child: Container(
-        padding: EdgeInsets.all(16.0),
-        margin: EdgeInsets.fromLTRB(12, 6, 12, 6),
+        padding: const EdgeInsets.all(16.0),
+        margin: const EdgeInsets.fromLTRB(12, 6, 12, 6),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
@@ -48,7 +48,7 @@ class PatientCardSearch extends StatelessWidget {
               color: Colors.grey.withOpacity(0.3),
               spreadRadius: 2,
               blurRadius: 5,
-              offset: Offset(0, 3),
+              offset: const Offset(0, 3),
             ),
           ],
         ),
@@ -62,7 +62,7 @@ class PatientCardSearch extends StatelessWidget {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(
-                      color: Color(0xFF199A8E),
+                      color: const Color(0xFF199A8E),
                       width: 1,
                     ),
                   ),
@@ -71,15 +71,15 @@ class PatientCardSearch extends StatelessWidget {
                     backgroundImage: NetworkImage(avatar),
                   ),
                 ),
-                SizedBox(width: 20),
+                const SizedBox(width: 20),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        '$name',
-                        style: TextStyle(
+                        name,
+                        style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                           overflow: TextOverflow.ellipsis, // Add this line
@@ -90,15 +90,15 @@ class PatientCardSearch extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.email,
                             color: Colors.grey,
                             size: 16,
                           ),
-                          SizedBox(width: 5),
+                          const SizedBox(width: 5),
                           Text(
                             email,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 16,
                               color: Colors.grey,
                             ),
@@ -108,15 +108,15 @@ class PatientCardSearch extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.phone,
                             color: Colors.grey,
                             size: 16,
                           ),
-                          SizedBox(width: 5),
+                          const SizedBox(width: 5),
                           Text(
                             phone,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 16,
                               color: Colors.grey,
                             ),
@@ -127,15 +127,15 @@ class PatientCardSearch extends StatelessWidget {
                         children: [
                           Text(
                             'Age: $age',
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 16,
                               color: Colors.grey,
                             ),
                           ),
-                          SizedBox(width: 40),
+                          const SizedBox(width: 40),
                           Text(
                             gender,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 16,
                               color: Colors.grey,
                             ),

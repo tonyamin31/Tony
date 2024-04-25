@@ -14,7 +14,7 @@ class DoctorCardSearch extends StatelessWidget {
   final String phoneNumber;
   final String doctorUid;
 
-  DoctorCardSearch({
+  const DoctorCardSearch({super.key, 
     required this.firstName,
     required this.lastName,
     required this.address,
@@ -56,8 +56,8 @@ class DoctorCardSearch extends StatelessWidget {
       },
       
       child: Container(
-      padding: EdgeInsets.all(16.0),
-      margin: EdgeInsets.fromLTRB(12 , 6, 12, 6),
+      padding: const EdgeInsets.all(16.0),
+      margin: const EdgeInsets.fromLTRB(12 , 6, 12, 6),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -67,7 +67,7 @@ class DoctorCardSearch extends StatelessWidget {
             color: Colors.grey.withOpacity(0.3),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           ),
         ],
       ),
@@ -83,7 +83,7 @@ class DoctorCardSearch extends StatelessWidget {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(
-                      color: Color(0xFF199A8E), // Border color
+                      color: const Color(0xFF199A8E), // Border color
                       width: 1, // Border width
                     ),
                   ),
@@ -93,35 +93,35 @@ class DoctorCardSearch extends StatelessWidget {
                   ),
                 ),
                 
-                SizedBox(width: 20),
+                const SizedBox(width: 20),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       'Dr. $firstName $lastName',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
                     Text(
                       address,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 16,
                         color: Colors.grey,
                       ),
                     ),
                     Text(
                       residence,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 16,
                         color: Colors.grey,
                       ),
                     ),
                     Text(
                       'Age: $age',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 16,
                         color: Colors.grey,
                       ),

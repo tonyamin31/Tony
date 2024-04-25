@@ -9,7 +9,7 @@ class PrescriptionDetailsPage extends StatelessWidget {
   final String appointmentDate;
   final String prescription;
 
-  PrescriptionDetailsPage({
+  const PrescriptionDetailsPage({super.key, 
     required this.doctorAvatar,
     required this.doctorName,
     required this.doctorPhone,
@@ -23,7 +23,7 @@ class PrescriptionDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Prescription Details'),
+        title: const Text('Prescription Details'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -31,44 +31,44 @@ class PrescriptionDetailsPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '$appointmentDate',
-              style: TextStyle(
+              appointmentDate,
+              style: const TextStyle(
                 fontSize: 18,
                 color: Colors.grey
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               children: [
                 Container(
-                  padding: EdgeInsets.all(4),
+                  padding: const EdgeInsets.all(4),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    border: Border.all(color: Color(0xFF199A8E), width: 2),
+                    border: Border.all(color: const Color(0xFF199A8E), width: 2),
                   ),
                   child: CircleAvatar(
                     radius: 30,
                     backgroundImage: NetworkImage(doctorAvatar),
                   ),
                 ),
-                SizedBox(width: 20),
+                const SizedBox(width: 20),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       'Dr. $doctorName',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
                       ),
                     ), 
                     Row(
                       children: [
-                        Icon(Icons.phone, color: Colors.grey, size: 16,),
-                        SizedBox(width: 8),
+                        const Icon(Icons.phone, color: Colors.grey, size: 16,),
+                        const SizedBox(width: 8),
                         Text(
-                          '$doctorPhone',
-                          style: TextStyle(
+                          doctorPhone,
+                          style: const TextStyle(
                             fontSize: 16,
                             color: Colors.grey,
                           ),
@@ -77,11 +77,11 @@ class PrescriptionDetailsPage extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Icon(Icons.email, color: Colors.grey, size: 16,),
-                        SizedBox(width: 8),
+                        const Icon(Icons.email, color: Colors.grey, size: 16,),
+                        const SizedBox(width: 8),
                         Text(
-                          '$doctorEmail',
-                          style: TextStyle(
+                          doctorEmail,
+                          style: const TextStyle(
                             fontSize: 16,
                             color: Colors.grey,
                             ),
@@ -92,10 +92,10 @@ class PrescriptionDetailsPage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
-              margin: EdgeInsets.all(10),
-              padding: EdgeInsets.all(8.0),
+              margin: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(8.0),
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -104,7 +104,7 @@ class PrescriptionDetailsPage extends StatelessWidget {
                     color: Colors.grey.withOpacity(0.3),
                     spreadRadius: 2,
                     blurRadius: 5,
-                    offset: Offset(0, 3),
+                    offset: const Offset(0, 3),
                   ),
                 ],
                 
@@ -118,7 +118,7 @@ class PrescriptionDetailsPage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'Prescription',
                           style: TextStyle(
                             fontSize: 18,
@@ -126,10 +126,10 @@ class PrescriptionDetailsPage extends StatelessWidget {
                             color: Color(0xFF199A8E),
                           ),
                         ),
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
                         Text(
                           prescription,
-                          style: TextStyle(fontSize: 16),
+                          style: const TextStyle(fontSize: 16),
                         ),
                       ],
                     ),
@@ -137,16 +137,16 @@ class PrescriptionDetailsPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.location_on, color: Colors.grey, size: 16,),
-                SizedBox(width: 8),
+                const Icon(Icons.location_on, color: Colors.grey, size: 16,),
+                const SizedBox(width: 8),
                 Text(
-                  '$doctorAddress',
-                  style: TextStyle(
+                  doctorAddress,
+                  style: const TextStyle(
                     fontSize: 16,
                     color: Colors.grey,
                     ),

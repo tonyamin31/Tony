@@ -9,7 +9,7 @@ class DoctorPostTemplate extends StatelessWidget {
   final String postContent;
   final String? postImage;
 
-  DoctorPostTemplate({
+  const DoctorPostTemplate({super.key, 
     required this.doctorAvatar,
     required this.doctorName,
     required this.postDate,
@@ -21,8 +21,8 @@ class DoctorPostTemplate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16),
-      margin: EdgeInsets.fromLTRB(10, 5, 10, 5),
+      padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.fromLTRB(10, 5, 10, 5),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
@@ -31,7 +31,7 @@ class DoctorPostTemplate extends StatelessWidget {
             color: Colors.grey.withOpacity(0.3),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           ),
         ],
       ),
@@ -46,20 +46,20 @@ class DoctorPostTemplate extends StatelessWidget {
                 radius: 20,
                 backgroundImage: NetworkImage(doctorAvatar),
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     doctorName,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
                     postDate,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 14,
                       color: Colors.grey,
                     ),
@@ -68,13 +68,13 @@ class DoctorPostTemplate extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           // Post Content
           Text(
             postContent,
-            style: TextStyle(fontSize: 16),
+            style: const TextStyle(fontSize: 16),
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           // Post Image
           if (postImage != null)
             GestureDetector(

@@ -4,6 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:naybeyes/screens/doctor/prescriptions/prescription_card.dart';
 
 class DocPrescriptionsPage extends StatefulWidget {
+  const DocPrescriptionsPage({super.key});
+
   @override
   _DocPrescriptionsPageState createState() => _DocPrescriptionsPageState();
 }
@@ -31,9 +33,9 @@ class _DocPrescriptionsPageState extends State<DocPrescriptionsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Prescriptions'),
+        title: const Text('Prescriptions'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
           iconSize: 18.0,
           onPressed: () {
             Navigator.pop(context); // Navigate back when back arrow is clicked
@@ -47,11 +49,11 @@ class _DocPrescriptionsPageState extends State<DocPrescriptionsPage> {
       .snapshots(),
   builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
     if (snapshot.connectionState == ConnectionState.waiting) {
-      return Center(child: CircularProgressIndicator());
+      return const Center(child: CircularProgressIndicator());
     } else if (snapshot.hasError) {
       return Center(child: Text('Error: ${snapshot.error}'));
     } else if (snapshot.data == null || snapshot.data!.docs.isEmpty) {
-      return Center(child: Text('No prescriptions found'));
+      return const Center(child: Text('No prescriptions found'));
     } else {
       // Display the prescriptions
       return ListView.builder(
@@ -69,7 +71,7 @@ class _DocPrescriptionsPageState extends State<DocPrescriptionsPage> {
               if (patientSnapshot.connectionState ==
                       ConnectionState.waiting ||
                   !patientSnapshot.hasData) {
-                return CircularProgressIndicator();
+                return const CircularProgressIndicator();
               } else if (patientSnapshot.hasError) {
                 return Text('Error: ${patientSnapshot.error}');
               } else {
@@ -84,7 +86,7 @@ class _DocPrescriptionsPageState extends State<DocPrescriptionsPage> {
                     if (appointmentSnapshot.connectionState ==
                             ConnectionState.waiting ||
                         !appointmentSnapshot.hasData) {
-                      return CircularProgressIndicator();
+                      return const CircularProgressIndicator();
                     } else if (appointmentSnapshot.hasError) {
                       return Text('Error: ${appointmentSnapshot.error}');
                     } else {

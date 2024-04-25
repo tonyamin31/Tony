@@ -3,6 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:naybeyes/screens/patient/search/doctor_card_insearch.dart';
 
 class FindDoctorPage extends StatefulWidget {
+  const FindDoctorPage({super.key});
+
   @override
   _FindDoctorPageState createState() => _FindDoctorPageState();
 }
@@ -57,9 +59,9 @@ class _FindDoctorPageState extends State<FindDoctorPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Doctors'),
+        title: const Text('Doctors'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
           iconSize: 18.0,
           onPressed: () {
             Navigator.pop(context); // Navigate back when back arrow is clicked
@@ -69,7 +71,7 @@ class _FindDoctorPageState extends State<FindDoctorPage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
             child: Container(
@@ -81,7 +83,7 @@ class _FindDoctorPageState extends State<FindDoctorPage> {
                     color: Colors.grey.withOpacity(0.3),
                     spreadRadius: 2,
                     blurRadius: 5,
-                    offset: Offset(0, 3),
+                    offset: const Offset(0, 3),
                   ),
                 ],
               ),
@@ -89,8 +91,8 @@ class _FindDoctorPageState extends State<FindDoctorPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
                   children: [
-                    Icon(Icons.search), // Add search icon
-                    SizedBox(width: 15), // Add some space between icon and text
+                    const Icon(Icons.search), // Add search icon
+                    const SizedBox(width: 15), // Add some space between icon and text
                     Expanded(
                       child: TextField(
                         controller: _searchController,
@@ -98,7 +100,7 @@ class _FindDoctorPageState extends State<FindDoctorPage> {
                           // Call fetchDoctors whenever the text changes
                           fetchDoctors(searchQuery: value.trim());
                         },
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           hintText: 'Search for a doctor',
                           hintStyle: TextStyle(
                             color: Colors.grey,
@@ -114,7 +116,7 @@ class _FindDoctorPageState extends State<FindDoctorPage> {
               ),
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Expanded(
             child: ListView.builder(
               itemCount: doctors.length,
@@ -147,7 +149,7 @@ class _FindDoctorPageState extends State<FindDoctorPage> {
                   );
                 } else {
                   // Handle case where doctorData is null or not a Map<String, dynamic>
-                  return ListTile(
+                  return const ListTile(
                     title: Text('Unknown'),
                     subtitle: Text('Unknown'),
                   );

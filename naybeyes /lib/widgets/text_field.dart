@@ -7,7 +7,7 @@ class CustomTextField extends StatelessWidget {
   final TextInputType keyboardType;
   final String? Function(String?)? validator;
 
-  const CustomTextField({
+  const CustomTextField({super.key, 
     required this.controller,
     required this.labelText,
     this.obscureText = false,
@@ -27,7 +27,7 @@ class CustomTextField extends StatelessWidget {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(50),
         ),
-        contentPadding: EdgeInsets.fromLTRB(20, 15, 15, 20), // Add left padding
+        contentPadding: const EdgeInsets.fromLTRB(20, 15, 15, 20), // Add left padding
       ),
     );
   }

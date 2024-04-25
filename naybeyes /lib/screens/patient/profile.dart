@@ -9,6 +9,8 @@ import 'package:naybeyes/user_provider.dart';
 import 'package:provider/provider.dart';
 
 class PatientProfilePage extends StatefulWidget {
+  const PatientProfilePage({super.key});
+
   @override
   _PatientProfilePageState createState() => _PatientProfilePageState();
 }
@@ -35,9 +37,9 @@ class _PatientProfilePageState extends State<PatientProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile'),
+        title: const Text('Profile'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
           iconSize: 18.0,
           onPressed: () {
             Navigator.pop(context); // Navigate back when back arrow is clicked
@@ -58,7 +60,7 @@ class _PatientProfilePageState extends State<PatientProfilePage> {
             final phone = userData['phoneNumber'] ?? '';
 
 
-            int _calculateAge(String birthdate) {
+            int calculateAge(String birthdate) {
               DateTime today = DateTime.now();
               DateTime birthDate = DateTime.parse(birthdate);
               int age = today.year - birthDate.year;
@@ -74,29 +76,29 @@ class _PatientProfilePageState extends State<PatientProfilePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Container(
                     width: double.infinity, // Make the container stretch to full width
-                    margin: EdgeInsets.symmetric(horizontal: 10), // Set horizontal margins
+                    margin: const EdgeInsets.symmetric(horizontal: 10), // Set horizontal margins
                     decoration: BoxDecoration(
-                      color: Color(0xFF199A8E), // Background color
+                      color: const Color(0xFF199A8E), // Background color
                       borderRadius: BorderRadius.circular(12.0),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.3),
                           spreadRadius: 2,
                           blurRadius: 5,
-                          offset: Offset(0, 3),
+                          offset: const Offset(0, 3),
                         ),
                       ], // Rounded corners
                     ),
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Container(
-                          padding: EdgeInsets.all(4),
+                          padding: const EdgeInsets.all(4),
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             border: Border.all(color: Colors.white, width: 2), // White border
@@ -117,12 +119,12 @@ class _PatientProfilePageState extends State<PatientProfilePage> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
 
 
                         Text(
                           fullName,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
@@ -132,46 +134,46 @@ class _PatientProfilePageState extends State<PatientProfilePage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.email,
                               color: Colors.white,
                               size: 16,
                             ),
-                            SizedBox(width: 5), // Add some space between the icon and the text
+                            const SizedBox(width: 5), // Add some space between the icon and the text
                             Text(
                               '$email',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 16,
                                 color: Colors.white,
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(height: 5),
+                        const SizedBox(height: 5),
 
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.phone,
                               color: Colors.white,
                               size: 16,
                             ),
-                            SizedBox(width: 5), // Add some space between the icon and the text
+                            const SizedBox(width: 5), // Add some space between the icon and the text
                             Text(
                               '$phone',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 16,
                                 color: Colors.white,
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                       ],
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   // Personal Info Section
                   Container(
                     decoration: BoxDecoration(
@@ -181,17 +183,17 @@ class _PatientProfilePageState extends State<PatientProfilePage> {
                           color: Colors.grey.withOpacity(0.3),
                           spreadRadius: 2,
                           blurRadius: 5,
-                          offset: Offset(0, 3),
+                          offset: const Offset(0, 3),
                         ),
                       ],
                       borderRadius: BorderRadius.circular(10), // Rounded corners
                       ),
-                    margin: EdgeInsets.all(10),
-                    padding: EdgeInsets.all(16.0),
+                    margin: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(16.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'Personal Info',
                           style: TextStyle(
                             fontSize: 18.0,
@@ -199,15 +201,15 @@ class _PatientProfilePageState extends State<PatientProfilePage> {
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(height: 10.0),
+                        const SizedBox(height: 10.0),
                         _buildPersonalInfoTile('Gender :', userData['gender']),
-                        Divider(),
+                        const Divider(),
                         _buildPersonalInfoTile('Blood Type :', userData['bloodType']),
-                        Divider(),
+                        const Divider(),
                         _buildPersonalInfoTile('Birthplace :', userData['birthplace']),
-                        Divider(),
+                        const Divider(),
                         _buildPersonalInfoTile('Height (cm) :', userData['height']),
-                        Divider(),
+                        const Divider(),
                         _buildPersonalInfoTile('Weight (kg) :', userData['weight']),
                       ],
                     ),
@@ -222,13 +224,13 @@ class _PatientProfilePageState extends State<PatientProfilePage> {
                           color: Colors.grey.withOpacity(0.3),
                           spreadRadius: 2,
                           blurRadius: 5,
-                          offset: Offset(0, 3),
+                          offset: const Offset(0, 3),
                         ),
                       ],
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    margin: EdgeInsets.all(10),
-                    child: Column(
+                    margin: const EdgeInsets.all(10),
+                    child: const Column(
                       children: [
                         ExpandableTile(
                           title: 'Allergies',
@@ -264,17 +266,17 @@ class _PatientProfilePageState extends State<PatientProfilePage> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
 
                   ElevatedButton(
                     onPressed: () => _signOut(context),
                     style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.fromLTRB(0, 15, 0, 15), // Remove default padding
+                      padding: const EdgeInsets.fromLTRB(0, 15, 0, 15), // Remove default padding
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8), // Set button's border radius
                       ),
                     ),
-                    child: SizedBox(
+                    child: const SizedBox(
                       width: 150, // Set desired width
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -296,12 +298,12 @@ class _PatientProfilePageState extends State<PatientProfilePage> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                 ],
               ),
             );
           } else {
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           }
         },
       ),
@@ -315,14 +317,14 @@ class _PatientProfilePageState extends State<PatientProfilePage> {
         ListTile(
           title: Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.w500,
               color:Color(0xFF199A8E),
               fontSize: 16,
             ),
           ),
           trailing: Text(value,
-            style: TextStyle(
+            style: const TextStyle(
             fontSize: 16,
             ),),
         ),

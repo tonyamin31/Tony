@@ -11,16 +11,20 @@ import 'package:naybeyes/widgets/text_field.dart';
 
 // Parent Widget
 class PatientLoginPageParent extends StatelessWidget {
+  const PatientLoginPageParent({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Provider<UserProvider>(
       create: (_) => UserProvider(),
-      child: PatientLoginPage(), // login widget
+      child: const PatientLoginPage(), // login widget
     );
   }
 }
 
 class PatientLoginPage extends StatefulWidget {
+  const PatientLoginPage({super.key});
+
   @override
   _PatientLoginPageState createState() => _PatientLoginPageState();
 }
@@ -48,7 +52,7 @@ class _PatientLoginPageState extends State<PatientLoginPage> {
                   width: 200,
                   height: 100,
                 ),
-                Icon(Icons.person,color: Color(0xFF199A8E),),
+                const Icon(Icons.person,color: Color(0xFF199A8E),),
                 
                 Visibility(
                   visible: errorMessage.isNotEmpty, // Show the container only if there is an error message
@@ -57,17 +61,17 @@ class _PatientLoginPageState extends State<PatientLoginPage> {
                       color: Colors.red.withOpacity(0.5), // Red background with 0.5 opacity
                       borderRadius: BorderRadius.circular(5), // Optional: Add border radius for rounded corners
                     ),
-                    padding: EdgeInsets.fromLTRB(60, 10, 60, 10), // Add padding to the container
+                    padding: const EdgeInsets.fromLTRB(60, 10, 60, 10), // Add padding to the container
                     child: Text(
                       errorMessage,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white, // Text color
                       ),
                     ),
                   ),
                 ),
 
-                SizedBox(height: 20), // Reduced space after logo
+                const SizedBox(height: 20), // Reduced space after logo
                 Form( // Wrap form fields within a Form widget (optional)
                   child: Column(
                     children: [
@@ -76,24 +80,24 @@ class _PatientLoginPageState extends State<PatientLoginPage> {
                         labelText: 'Email',
                         keyboardType: TextInputType.emailAddress,
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       CustomTextField(
                         controller: passwordController,
                         labelText: 'Password',
                         obscureText: true,
                       ),
-                      SizedBox(height: 8), // Adjust the spacing between the password field and the text
+                      const SizedBox(height: 8), // Adjust the spacing between the password field and the text
                       Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Spacer(),
+                          const Spacer(),
                           Padding(
                             padding: const EdgeInsets.only(right: 15.0), // Adjust the left padding as needed
                             child: GestureDetector(
                               onTap: () {
                               Navigator.pushNamed(context, '/forgetpassword');
                               },
-                              child: Text(
+                              child: const Text(
                                 'Forgot your password ?',
                                 style: TextStyle(
                                   fontSize: 14,
@@ -108,7 +112,7 @@ class _PatientLoginPageState extends State<PatientLoginPage> {
                     ],
                   ),
                 ),                
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
 
                 CustomButton(
                   text: 'Login',
@@ -149,12 +153,12 @@ class _PatientLoginPageState extends State<PatientLoginPage> {
                     },
                 ),
 
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       'Don\'t have an account ? ',
                       style: TextStyle(color: Colors.grey),
                     ),
@@ -162,7 +166,7 @@ class _PatientLoginPageState extends State<PatientLoginPage> {
                       onTap: () {
                         Navigator.pushReplacementNamed(context, '/patient/signup');
                       },
-                      child: Text(
+                      child: const Text(
                         'Sign Up',
                         style: TextStyle(
                           color: Color(0xFF199A8E),
@@ -172,9 +176,9 @@ class _PatientLoginPageState extends State<PatientLoginPage> {
                     ),
                   ],
                 ),
-                SizedBox(height: 120),
+                const SizedBox(height: 120),
                 IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.arrow_back,
                     color: Color(0xFF199A8E), // Set the color of the icon
                   ),

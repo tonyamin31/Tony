@@ -5,6 +5,8 @@ import 'package:naybeyes/user_provider.dart';
 import 'package:provider/provider.dart';
 
 class PatientProfilePage extends StatefulWidget {
+  const PatientProfilePage({super.key});
+
   @override
   _PatientProfilePageState createState() => _PatientProfilePageState();
 }
@@ -17,9 +19,9 @@ class _PatientProfilePageState extends State<PatientProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile'),
+        title: const Text('Profile'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
           iconSize: 18.0,
           onPressed: () {
             Navigator.pop(context); // Navigate back when back arrow is clicked
@@ -40,7 +42,7 @@ class _PatientProfilePageState extends State<PatientProfilePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   CircleAvatar(
                     radius: 70,
                     backgroundColor: Colors.white,
@@ -49,26 +51,26 @@ class _PatientProfilePageState extends State<PatientProfilePage> {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         border: Border.all(
-                          color: Color(0xFF199A8E), // Border color
+                          color: const Color(0xFF199A8E), // Border color
                           width: 2, // Border width
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Text(
                     fullName,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   // Add horizontally scrollable TabBar here
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 5.0), // Adjust the horizontal margin as needed
+                      padding: const EdgeInsets.symmetric(horizontal: 5.0), // Adjust the horizontal margin as needed
                       child: Row(
                         children: [
                           _buildTab('Personal Info', 0),
@@ -80,11 +82,11 @@ class _PatientProfilePageState extends State<PatientProfilePage> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Expanded(
                     child: IndexedStack(
                       index: _selectedIndex,
-                      children: [
+                      children: const [
                         // Content for Personal Info tab
                         Center(
                           child: Text(
@@ -137,7 +139,7 @@ class _PatientProfilePageState extends State<PatientProfilePage> {
               ),
             );
           } else {
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           } 
         }, // builder
       ), // Consumer
@@ -154,19 +156,19 @@ class _PatientProfilePageState extends State<PatientProfilePage> {
           });
         },
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 12, horizontal: 25),
+          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 25),
           decoration: BoxDecoration(
-            color: _selectedIndex == index ? Color(0xFF199A8E) : Colors.white,
+            color: _selectedIndex == index ? const Color(0xFF199A8E) : Colors.white,
             borderRadius: BorderRadius.circular(30),
             border: Border.all(
-              color: _selectedIndex == index ? Colors.transparent : Color(0xFF199A8E),
+              color: _selectedIndex == index ? Colors.transparent : const Color(0xFF199A8E),
               width: 2, // Border width
             ),
           ),
           child: Text(
             title,
             style: TextStyle(
-              color: _selectedIndex == index ? Colors.white : Color(0xFF199A8E),
+              color: _selectedIndex == index ? Colors.white : const Color(0xFF199A8E),
               fontWeight: FontWeight.bold,
             ),
           ),

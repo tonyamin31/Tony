@@ -17,6 +17,8 @@ import 'package:naybeyes/drop_down_lists/blood_types.dart';
 
 
 class PatientSignUpPage extends StatefulWidget {
+  const PatientSignUpPage({super.key});
+
   @override
   _PatientSignUpPageState createState() => _PatientSignUpPageState();
 }
@@ -72,22 +74,22 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
                     width: 200, // Adjust the width of the image as needed
                     height: 100, // Adjust the height of the image as needed
                   ),
-                  Icon(Icons.person,color: Color(0xFF199A8E),),
-                  SizedBox(height: 30),
+                  const Icon(Icons.person,color: Color(0xFF199A8E),),
+                  const SizedBox(height: 30),
 
                   CustomTextField(
                     controller: firstNameController,
                     labelText: 'First Name',
                     validator: _validateTextField,
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
 
                   CustomTextField(
                     controller: lastNameController,
                     labelText: 'Last Name',
                     validator: _validateTextField,
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
 
                   CustomTextField(
                     controller: emailController,
@@ -95,7 +97,7 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
                     validator: _validateEmail,
                     keyboardType: TextInputType.emailAddress,
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
 
                   CustomTextField(
                     controller: passwordController,
@@ -103,7 +105,7 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
                     validator: _validatePassword,
                     obscureText: true,
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
 
                   CustomTextField(
                       controller: confirmPasswordController,
@@ -111,7 +113,7 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
                       obscureText: true,
                       validator: _validateConfirmPassword,
                     ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
 
                   CustomTextField(
                     controller: phoneNumberController,
@@ -119,9 +121,9 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
                     keyboardType: TextInputType.phone,
                     validator: _validatePhoneNumber,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
 
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.center, // Align items in the center horizontally
                     children: [
                       Expanded(
@@ -131,7 +133,7 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0), // Add some horizontal padding
+                        padding: EdgeInsets.symmetric(horizontal: 8.0), // Add some horizontal padding
                         child: Text(
                           'Additional Information',
                           style: TextStyle(
@@ -149,7 +151,7 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
 
                   TextFormField(
                     readOnly: true,
@@ -159,7 +161,7 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                       ),
-                      contentPadding: EdgeInsets.fromLTRB(20, 15, 15, 20),
+                      contentPadding: const EdgeInsets.fromLTRB(20, 15, 15, 20),
                     ),
                     validator: (value) {
                       if (selectedDate == null) {
@@ -170,7 +172,7 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
                     controller: TextEditingController(
                         text: _formatDate(selectedDate)),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
 
                   DropdownButtonFormField<String>(
                     value: birthplace, // Your selected value variable
@@ -190,10 +192,10 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                       ),
-                      contentPadding: EdgeInsets.fromLTRB(20, 15, 15, 20),
+                      contentPadding: const EdgeInsets.fromLTRB(20, 15, 15, 20),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
 
                   DropdownButtonFormField<String>(
                     value: selectedBloodType, // Your selected value variable
@@ -213,10 +215,10 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                       ),
-                      contentPadding: EdgeInsets.fromLTRB(20, 15, 15, 20),
+                      contentPadding: const EdgeInsets.fromLTRB(20, 15, 15, 20),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
 
 
                   DropdownButtonFormField<String>(
@@ -237,10 +239,10 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                       ),
-                      contentPadding: EdgeInsets.fromLTRB(20, 15, 15, 20),
+                      contentPadding: const EdgeInsets.fromLTRB(20, 15, 15, 20),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
 
 
                   DropdownButtonFormField<String>(
@@ -261,11 +263,11 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                       ),
-                      contentPadding: EdgeInsets.fromLTRB(20, 15, 15, 20),
+                      contentPadding: const EdgeInsets.fromLTRB(20, 15, 15, 20),
                     ),
                   ),
 
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
 
 
                   CustomTextField(
@@ -273,7 +275,7 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
                     labelText: 'Address',
                     validator: _validateTextField,
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Row(
                     children: [
                       Expanded(
@@ -289,7 +291,7 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
                           },
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Expanded(
                         child: CustomTextField(
                           controller: heightController,
@@ -305,14 +307,14 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
 
                   ElevatedButton(
                     onPressed: _selectImage,
                     style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(vertical: 14, horizontal: 28),
+                    padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 28),
                     ),
-                    child: Row(
+                    child: const Row(
                       mainAxisSize: MainAxisSize.min, // To minimize the width of the button
                       children: [
                         Icon(Icons.camera_alt), // Add the camera icon
@@ -321,7 +323,7 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
 
                   CustomButton(
                     text: 'Sign Up',
@@ -331,17 +333,17 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
                       }
                     },
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('Already have an account ? '),
+                      const Text('Already have an account ? '),
                       GestureDetector(
                         onTap: () {
                           Navigator.pushReplacementNamed(context, '/patient/login');
                         },
-                        child: Text(
+                        child: const Text(
                           'Login',
                           style: TextStyle(
                             color: Color(0xFF199A8E),
@@ -351,7 +353,7 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                 ]
               ),
             ),
@@ -454,14 +456,14 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
       final firebase_storage.Reference ref = firebase_storage.FirebaseStorage.instance
           .ref()
           .child('patient avatar')
-          .child(DateTime.now().millisecondsSinceEpoch.toString() + '.jpg');
+          .child('${DateTime.now().millisecondsSinceEpoch}.jpg');
       await ref.putFile(File(_imageFile!.path));
       final imageUrl = await ref.getDownloadURL();
       isImageUploaded = true;
       return imageUrl;
     } catch (e) {
       print('Error uploading image: $e');
-      throw e;
+      rethrow;
     }
   }
 
@@ -500,7 +502,7 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
             context: context,
             builder: (context) => AlertDialog(
               backgroundColor: Colors.white,
-              title: Text(
+              title: const Text(
                 'Sign Up Error',
                 style: TextStyle(
                   color: Color(0xFF199A8E), // Set title text color
@@ -508,11 +510,11 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
                   fontWeight: FontWeight.bold, // Set title text weight
                 ),
               ),
-              content: Text('Use different email address, or Login instead.'),
+              content: const Text('Use different email address, or Login instead.'),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(context).pop(),
-                  child: Text('OK'),
+                  child: const Text('OK'),
                 ),
               ],
             ),
@@ -537,14 +539,14 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: Text('Please upload an avatar'),
-            content: Text('Upload a profile picture to sign up'),
+            title: const Text('Please upload an avatar'),
+            content: const Text('Upload a profile picture to sign up'),
             actions: [
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: Text('OK'),
+                child: const Text('OK'),
               ),
             ],
           ),
@@ -560,7 +562,7 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
 
       // Show success message
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           backgroundColor: Color(0xFF199A8E), // Set background color to green
           content: Text('Signed Up Successfully.',
           style: TextStyle(color: Colors.white),),

@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class AddMedicinePage extends StatefulWidget {
+  const AddMedicinePage({super.key});
+
   @override
   _AddMedicinePageState createState() => _AddMedicinePageState();
 }
@@ -18,9 +20,9 @@ class _AddMedicinePageState extends State<AddMedicinePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Medicine'),
+        title: const Text('Add Medicine'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
           iconSize: 18.0,
           onPressed: () {
             Navigator.pop(context); // Navigate back when back arrow is clicked
@@ -43,10 +45,10 @@ class _AddMedicinePageState extends State<AddMedicinePage> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    contentPadding: EdgeInsets.fromLTRB(20, 15, 15, 20),
+                    contentPadding: const EdgeInsets.fromLTRB(20, 15, 15, 20),
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
 
                 TextFormField(
                   controller: _dosageController, // Use dosage controller
@@ -56,10 +58,10 @@ class _AddMedicinePageState extends State<AddMedicinePage> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    contentPadding: EdgeInsets.fromLTRB(20, 15, 15, 20),
+                    contentPadding: const EdgeInsets.fromLTRB(20, 15, 15, 20),
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 
                 TextFormField(
                   controller: _additionalNoteController,
@@ -70,31 +72,31 @@ class _AddMedicinePageState extends State<AddMedicinePage> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    contentPadding: EdgeInsets.fromLTRB(20, 15, 15, 20),
+                    contentPadding: const EdgeInsets.fromLTRB(20, 15, 15, 20),
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 
                 GestureDetector(
                   onTap: () {
                     _saveMedicine();
                   },
                   child: Container(
-                    padding: EdgeInsets.fromLTRB(10, 15, 10, 15),
-                    margin: EdgeInsets.fromLTRB(15, 5, 15, 5),
+                    padding: const EdgeInsets.fromLTRB(10, 15, 10, 15),
+                    margin: const EdgeInsets.fromLTRB(15, 5, 15, 5),
                     decoration: BoxDecoration(
-                      color: Color(0xFF199A8E),
+                      color: const Color(0xFF199A8E),
                       borderRadius: BorderRadius.circular(12),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.3),
                           spreadRadius: 2,
                           blurRadius: 5,
-                          offset: Offset(0, 3),
+                          offset: const Offset(0, 3),
                         ),
                       ],
                     ),
-                    child: Row(
+                    child: const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
@@ -147,7 +149,7 @@ class _AddMedicinePageState extends State<AddMedicinePage> {
     await _saveRecordToFirestore();
 
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
+      const SnackBar(
         backgroundColor: Color(0xFF199A8E),
         content: Text(
           'Medicine added successfully.',

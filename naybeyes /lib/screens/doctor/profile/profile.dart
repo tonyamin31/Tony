@@ -10,6 +10,8 @@ import 'package:naybeyes/screens/doctor/profile/doctor_post_template.dart';
 import 'package:provider/provider.dart';
 
 class DoctorProfilePage extends StatefulWidget {
+  const DoctorProfilePage({super.key});
+
   @override
   _DoctorProfilePageState createState() => _DoctorProfilePageState();
 }
@@ -46,9 +48,9 @@ class _DoctorProfilePageState extends State<DoctorProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile'),
+        title: const Text('Profile'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
           iconSize: 18.0,
           onPressed: () {
             Navigator.pop(context);
@@ -59,15 +61,15 @@ class _DoctorProfilePageState extends State<DoctorProfilePage> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => AddNewPostPage()),
+            MaterialPageRoute(builder: (context) => const AddNewPostPage()),
           );
         },
-        label: Text(
+        label: const Text(
           'New Post',
           style: TextStyle(color: Colors.white),
         ),
-        icon: Icon(Icons.post_add, color: Colors.white),
-        backgroundColor: Color(0xFF199A8E),
+        icon: const Icon(Icons.post_add, color: Colors.white),
+        backgroundColor: const Color(0xFF199A8E),
       ),
       body: Consumer<UserProvider>(
         builder: (context, userProvider, child) {
@@ -78,7 +80,7 @@ class _DoctorProfilePageState extends State<DoctorProfilePage> {
               SliverToBoxAdapter(
                 child: userData != null
                     ? _buildProfile(userData)
-                    : Center(child: CircularProgressIndicator()),
+                    : const Center(child: CircularProgressIndicator()),
               ),
               SliverToBoxAdapter(
                 child: StreamBuilder<QuerySnapshot>(
@@ -88,17 +90,17 @@ class _DoctorProfilePageState extends State<DoctorProfilePage> {
                       .snapshots(),
                   builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Center(child: CircularProgressIndicator());
+                      return const Center(child: CircularProgressIndicator());
                     } else if (snapshot.hasError) {
                       return Center(child: Text('Error: ${snapshot.error}'));
                     } else if (snapshot.data == null ||
                         snapshot.data!.docs.isEmpty) {
-                      return Center(child: Text('No posts found'));
+                      return const Center(child: Text('No posts found'));
                     } else {
                       return ListView.builder(
                         itemCount: snapshot.data!.docs.length,
                         shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         itemBuilder: (context, index) {
                           DocumentSnapshot post = snapshot.data!.docs[index];
                           String doctorUID = post['doctorUID'];
@@ -113,7 +115,7 @@ class _DoctorProfilePageState extends State<DoctorProfilePage> {
                                     doctorSnapshot) {
                               if (doctorSnapshot.connectionState ==
                                   ConnectionState.waiting) {
-                                return CircularProgressIndicator();
+                                return const CircularProgressIndicator();
                               } else if (doctorSnapshot.hasError) {
                                 return Text(
                                     'Error: ${doctorSnapshot.error}');
@@ -129,7 +131,7 @@ class _DoctorProfilePageState extends State<DoctorProfilePage> {
                                   postDate: post['date'] ?? '',
                                   postTime: post['time'] ?? '',
                                   postContent: post['content'] ?? '',
-                                  postImage: post['imageUrl'] ?? null,
+                                  postImage: post['imageUrl'],
                                 );
                               }
                             },
@@ -158,7 +160,7 @@ class _DoctorProfilePageState extends State<DoctorProfilePage> {
     final birthplace = userData['birthplace'] ?? '';
     final birthdate = userData['birthdate'] ?? '';
 
-    int _calculateAge(String birthdate) {
+    int calculateAge(String birthdate) {
       DateTime today = DateTime.now();
       DateTime birthDate = DateTime.parse(birthdate);
       int age = today.year - birthDate.year;
@@ -169,12 +171,12 @@ class _DoctorProfilePageState extends State<DoctorProfilePage> {
       return age;
     }
 
-    int age = _calculateAge(birthdate);
+    int age = calculateAge(birthdate);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         GestureDetector(
           onTap: () {
             Navigator.push(
@@ -195,11 +197,11 @@ class _DoctorProfilePageState extends State<DoctorProfilePage> {
             ),
           ),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         Container(
           width: double.infinity,
-          padding: EdgeInsets.all(16),
-          margin: EdgeInsets.symmetric(horizontal: 8),
+          padding: const EdgeInsets.all(16),
+          margin: const EdgeInsets.symmetric(horizontal: 8),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(10),
@@ -208,7 +210,7 @@ class _DoctorProfilePageState extends State<DoctorProfilePage> {
                 color: Colors.grey.withOpacity(0.3),
                 spreadRadius: 2,
                 blurRadius: 5,
-                offset: Offset(0, 3),
+                offset: const Offset(0, 3),
               ),
             ],
           ),
@@ -217,32 +219,32 @@ class _DoctorProfilePageState extends State<DoctorProfilePage> {
             children: [
               Text(
                 'Dr. $fullName',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.w500,
                   color: Color(0xFF199A8E),
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text(
                 '• $specialization',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16,
                   color: Color(0xFF199A8E),
                 ),
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               Text(
                 '• Age $age',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16,
                   color: Color(0xFF199A8E),
                 ),
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               Text(
                 '• $birthplace',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16,
                   color: Color(0xFF199A8E),
                 ),
@@ -250,11 +252,11 @@ class _DoctorProfilePageState extends State<DoctorProfilePage> {
             ],
           ),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         Container(
           width: double.infinity,
-          padding: EdgeInsets.all(16),
-          margin: EdgeInsets.symmetric(horizontal: 8),
+          padding: const EdgeInsets.all(16),
+          margin: const EdgeInsets.symmetric(horizontal: 8),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(10),
@@ -263,14 +265,14 @@ class _DoctorProfilePageState extends State<DoctorProfilePage> {
                 color: Colors.grey.withOpacity(0.3),
                 spreadRadius: 2,
                 blurRadius: 5,
-                offset: Offset(0, 3),
+                offset: const Offset(0, 3),
               ),
             ],
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'Contact Information',
                 style: TextStyle(
                   fontSize: 22,
@@ -278,56 +280,56 @@ class _DoctorProfilePageState extends State<DoctorProfilePage> {
                   color: Color(0xFF199A8E),
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.phone,
                     color: Color(0xFF199A8E),
                     size: 16,
                   ),
-                  SizedBox(width: 5),
+                  const SizedBox(width: 5),
                   Text(
                     '$phone',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                       color: Color(0xFF199A8E),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.email,
                     color: Color(0xFF199A8E),
                     size: 16,
                   ),
-                  SizedBox(width: 5),
+                  const SizedBox(width: 5),
                   Text(
                     '$email',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                       color: Color(0xFF199A8E),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
             ],
           ),
         ),
-        SizedBox(height: 30),
+        const SizedBox(height: 30),
         ElevatedButton(
           onPressed: () => _signOut(context),
           style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
+            padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
             ),
           ),
-          child: SizedBox(
+          child: const SizedBox(
             width: 150,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -348,7 +350,7 @@ class _DoctorProfilePageState extends State<DoctorProfilePage> {
             ),
           ),
         ),
-        SizedBox(height: 30),
+        const SizedBox(height: 30),
       ],
     );
   }

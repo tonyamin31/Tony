@@ -4,6 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:naybeyes/screens/patient/appointments/doc_appointment_card.dart';
 
 class AppointmentsPage extends StatefulWidget {
+  const AppointmentsPage({super.key});
+
   @override
   _AppointmentsPageState createState() => _AppointmentsPageState();
 }
@@ -42,9 +44,9 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Appointments'),
+        title: const Text('Appointments'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
           iconSize: 18.0,
           onPressed: () {
             Navigator.pop(context); // Navigate back when back arrow is clicked
@@ -56,7 +58,7 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             // Show a loading indicator while waiting for data
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             // Show an error message if there's an error with fetching doctor data
             return Center(child: Text('Error: ${snapshot.error}'));
@@ -70,7 +72,7 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
               builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   // Show a loading indicator while waiting for data
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasError) {
                   // Show an error message if there's an error with the stream
                   return Center(child: Text('Error: ${snapshot.error}'));
@@ -109,13 +111,13 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
                   }
 
                   if (appointmentCards.isEmpty) {
-                    return Center(child: Text('No appointments found'));
+                    return const Center(child: Text('No appointments found'));
                   } else {
                     return ListView.builder(
                       itemCount: appointmentCards.length,
                       itemBuilder: (context, index) {
                         return Padding(
-                          padding: EdgeInsets.fromLTRB(12,0,12,0),
+                          padding: const EdgeInsets.fromLTRB(12,0,12,0),
                           child: appointmentCards[index],
                         );
                       },

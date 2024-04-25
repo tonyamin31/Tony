@@ -20,7 +20,7 @@ class Appointment {
 class AppointmentBookingScreen extends StatefulWidget {
   final String doctorUid;
 
-  AppointmentBookingScreen({required this.doctorUid});
+  const AppointmentBookingScreen({super.key, required this.doctorUid});
 
   @override
   _AppointmentBookingScreenState createState() =>
@@ -56,7 +56,7 @@ class _AppointmentBookingScreenState extends State<AppointmentBookingScreen> {
 
         // Show a snackbar to indicate successful booking
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
+          const SnackBar(
             content: Text('Appointment booked successfully!'),
             duration: Duration(seconds: 2),
           ),
@@ -77,7 +77,7 @@ class _AppointmentBookingScreenState extends State<AppointmentBookingScreen> {
     } else {
       // Show an error message if date or time is not selected
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('Please select date and time for the appointment'),
           duration: Duration(seconds: 2),
         ),
@@ -89,7 +89,7 @@ class _AppointmentBookingScreenState extends State<AppointmentBookingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Book Appointment'),
+        title: const Text('Book Appointment'),
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -103,7 +103,7 @@ class _AppointmentBookingScreenState extends State<AppointmentBookingScreen> {
                     context: context,
                     initialDate: DateTime.now(),
                     firstDate: DateTime.now(),
-                    lastDate: DateTime.now().add(Duration(days: 3)),
+                    lastDate: DateTime.now().add(const Duration(days: 3)),
                   );
                   if (pickedDate != null && pickedDate != selectedDate) {
                     setState(() {
@@ -111,12 +111,12 @@ class _AppointmentBookingScreenState extends State<AppointmentBookingScreen> {
                     });
                   }
                 },
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                ),
                 child: Text(selectedDate == null
                     ? 'Select Date'
                     : 'Date: ${selectedDate!.toString().split(' ')[0]}'),
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                ),
               ),
 
               // Time Picker
@@ -132,12 +132,12 @@ class _AppointmentBookingScreenState extends State<AppointmentBookingScreen> {
                     });
                   }
                 },
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                ),
                 child: Text(selectedTime == null
                     ? 'Select Time'
                     : 'Time: ${selectedTime!.format(context)}'),
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                ),
               ),
 
               // Confirm Button
@@ -145,10 +145,10 @@ class _AppointmentBookingScreenState extends State<AppointmentBookingScreen> {
                 onPressed: () {
                   confirmAppointment(context);
                 },
-                child: Text('Confirm Appointment'),
                 style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                 ),
+                child: const Text('Confirm Appointment'),
               ),
             ],
           ),

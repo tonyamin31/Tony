@@ -6,18 +6,18 @@ class CustomSearchBar extends StatelessWidget {
   final String hintText;
 
   const CustomSearchBar({
-    Key? key,
+    super.key,
     required this.controller,
     this.onChanged,
     required this.hintText,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
       child: Container(
-        margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
+        margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(50),
@@ -26,7 +26,7 @@ class CustomSearchBar extends StatelessWidget {
               color: Colors.grey.withOpacity(0.3),
               spreadRadius: 2,
               blurRadius: 5,
-              offset: Offset(0, 3),
+              offset: const Offset(0, 3),
             ),
           ],
         ),
@@ -34,20 +34,20 @@ class CustomSearchBar extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Row(
             children: [
-              Icon(Icons.search), // Add search icon
-              SizedBox(width: 15), // Add some space between icon and text
+              const Icon(Icons.search), // Add search icon
+              const SizedBox(width: 15), // Add some space between icon and text
               Expanded(
                 child: TextField(
                   controller: controller,
                   onChanged: onChanged,
                   decoration: InputDecoration(
                     hintText: hintText,
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       color: Colors.grey,
                       fontSize: 16,
                     ),
                     border: InputBorder.none,
-                    contentPadding: EdgeInsets.symmetric(vertical: 14),
+                    contentPadding: const EdgeInsets.symmetric(vertical: 14),
                   ),
                 ),
               ),

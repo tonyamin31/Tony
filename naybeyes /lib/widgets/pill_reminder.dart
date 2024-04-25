@@ -6,7 +6,7 @@ class PillReminderCard extends StatelessWidget {
   final bool isTaken;
   final ValueChanged<bool?>? onCheckboxChanged;
 
-  PillReminderCard({
+  const PillReminderCard({super.key, 
     required this.medicineName,
     required this.time,
     required this.isTaken,
@@ -16,8 +16,8 @@ class PillReminderCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16),
-      margin: EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.symmetric(vertical: 8),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
@@ -26,7 +26,7 @@ class PillReminderCard extends StatelessWidget {
             color: Colors.grey.withOpacity(0.3),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           ),
         ],
       ),
@@ -38,7 +38,7 @@ class PillReminderCard extends StatelessWidget {
             children: [
               Text(
                 medicineName,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
@@ -46,7 +46,7 @@ class PillReminderCard extends StatelessWidget {
               ),
               Text(
                 'Take your pill at $time',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16,
                   color: Colors.black,
                 ),
@@ -56,7 +56,7 @@ class PillReminderCard extends StatelessWidget {
           Checkbox(
             value: isTaken,
             onChanged: onCheckboxChanged,
-            activeColor: Color(0xFF199A8E),
+            activeColor: const Color(0xFF199A8E),
           ),
         ],
       ),

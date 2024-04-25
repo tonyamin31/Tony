@@ -61,7 +61,7 @@ class MedVerse extends StatelessWidget {
 
     return MaterialApp(
       theme: ThemeData().copyWith(
-      colorScheme: ThemeData().colorScheme.copyWith(primary: Color(0xFF199A8E)),   // focus border color of the TextField
+      colorScheme: ThemeData().colorScheme.copyWith(primary: const Color(0xFF199A8E)),   // focus border color of the TextField
     ),
     
       title: 'MedVerse',
@@ -70,32 +70,32 @@ class MedVerse extends StatelessWidget {
 
       routes: {
         '/splashscreen': (context) => const SplashScreen(),
-        '/roleselection': (context) => RoleSelectionPage(),
+        '/roleselection': (context) => const RoleSelectionPage(),
         '/forgetpassword': (context) => ForgetPasswordPage(), 
         
         // Patient Side routes
-        '/patient/home': (context) => PatientHomePage(),
-        '/patient/appointments': (context) => AppointmentsPage(),
-        '/patient/medicines': (context) => MedicinesPage(),
-        '/patient/profile': (context) => PatientProfilePage(),
-        '/patient/ambulance': (context) => AmbulancePage(),
-        '/patient/finder': (context) => FinderPage(),
-        '/patient/prescriptions': (context) => PatPrescriptionsPage(),
-        '/patient/records': (context) => RecordsPage(),
-        '/patient/search': (context) => SearchPage(),
+        '/patient/home': (context) => const PatientHomePage(),
+        '/patient/appointments': (context) => const AppointmentsPage(),
+        '/patient/medicines': (context) => const MedicinesPage(),
+        '/patient/profile': (context) => const PatientProfilePage(),
+        '/patient/ambulance': (context) => const AmbulancePage(),
+        '/patient/finder': (context) => const FinderPage(),
+        '/patient/prescriptions': (context) => const PatPrescriptionsPage(),
+        '/patient/records': (context) => const RecordsPage(),
+        '/patient/search': (context) => const SearchPage(),
 
-        '/patient/login': (context) => PatientLoginPage(),
-        '/patient/signup': (context) => PatientSignUpPage(),
+        '/patient/login': (context) => const PatientLoginPage(),
+        '/patient/signup': (context) => const PatientSignUpPage(),
 
         // Doctor Side Routes
         // '/test': (context) => ImageBoxWithName(),
-        '/doctor/home': (context) => DoctorHomePage(),
-        '/doctor/profile': (context) => DoctorProfilePage(),
-        '/doctor/schedule': (context) => SchedulePage(),
-        '/doctor/prescriptions': (context) => DocPrescriptionsPage(),
-        '/doctor/patients': (context) => MyPatientsPage(),
-        '/doctor/login': (context) => DoctorLoginPage(),
-        '/doctor/signup': (context) => DoctorSignUpPage(),
+        '/doctor/home': (context) => const DoctorHomePage(),
+        '/doctor/profile': (context) => const DoctorProfilePage(),
+        '/doctor/schedule': (context) => const SchedulePage(),
+        '/doctor/prescriptions': (context) => const DocPrescriptionsPage(),
+        '/doctor/patients': (context) => const MyPatientsPage(),
+        '/doctor/login': (context) => const DoctorLoginPage(),
+        '/doctor/signup': (context) => const DoctorSignUpPage(),
         
 
       },

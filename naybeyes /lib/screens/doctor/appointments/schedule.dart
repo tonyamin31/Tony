@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:naybeyes/screens/doctor/appointments/patient_appointment_card.dart';
 
 class SchedulePage extends StatefulWidget {
+  const SchedulePage({super.key});
+
   @override
   _SchedulePageState createState() => _SchedulePageState();
 }
@@ -75,9 +77,9 @@ class _SchedulePageState extends State<SchedulePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Schedule'),
+        title: const Text('Schedule'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
           iconSize: 18.0,
           onPressed: () {
             Navigator.pop(context); // Navigate back when back arrow is clicked
@@ -88,19 +90,19 @@ class _SchedulePageState extends State<SchedulePage> {
         future: _buildAppointmentCards(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else {
             List<Widget> appointmentCards = snapshot.data!;
             if (appointmentCards.isEmpty) {
-              return Center(child: Text('No appointments found'));
+              return const Center(child: Text('No appointments found'));
             } else {
               return ListView.builder(
                 itemCount: appointmentCards.length,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: EdgeInsets.fromLTRB(12, 0, 12, 0),
+                    padding: const EdgeInsets.fromLTRB(12, 0, 12, 0),
                     child: appointmentCards[index],
                   );
                 },

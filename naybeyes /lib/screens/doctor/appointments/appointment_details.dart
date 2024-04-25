@@ -7,7 +7,7 @@ class DetailedAppointmentPage extends StatefulWidget {
   final String doctorUid;
   final String appointmentId;
 
-  DetailedAppointmentPage({
+  const DetailedAppointmentPage({super.key, 
     required this.patientUid,
     required this.doctorUid,
     required this.appointmentId,
@@ -51,15 +51,15 @@ class _DetailedAppointmentPageState extends State<DetailedAppointmentPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Details'),
+        title: const Text('Details'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               if (patientDetails != null) ...[
                 Row(
                   children: [
@@ -74,11 +74,11 @@ class _DetailedAppointmentPageState extends State<DetailedAppointmentPage> {
                         );
                       },
                       child: Container(
-                        padding: EdgeInsets.all(4),
+                        padding: const EdgeInsets.all(4),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           border:
-                              Border.all(color: Color(0xFF199A8E), width: 2),
+                              Border.all(color: const Color(0xFF199A8E), width: 2),
                         ),
                         child: CircleAvatar(
                           radius: 40,
@@ -87,53 +87,53 @@ class _DetailedAppointmentPageState extends State<DetailedAppointmentPage> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 16),
+                    const SizedBox(width: 16),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           '${patientDetails!['firstName']} ${patientDetails!['lastName']}',
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(height: 5),
+                        const SizedBox(height: 5),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.email,
                               color: Colors.grey,
                               size: 16,
                             ),
-                            SizedBox(
+                            const SizedBox(
                                 width:
                                     5), // Add some space between the icon and the text
                             Text(
                               patientDetails!['email'] ?? '',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 16,
                                 color: Colors.grey,
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(height: 5),
+                        const SizedBox(height: 5),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.phone,
                               color: Colors.grey,
                               size: 16,
                             ),
-                            SizedBox(
+                            const SizedBox(
                                 width:
                                     5), // Add some space between the icon and the text
                             Text(
                               patientDetails!['phoneNumber'] ?? '',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 16,
                                 color: Colors.grey,
                               ),
@@ -145,7 +145,7 @@ class _DetailedAppointmentPageState extends State<DetailedAppointmentPage> {
                   ],
                 ),
               ],
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               // Personal Info Section
               if (patientDetails != null) ...[
                 Container(
@@ -156,17 +156,17 @@ class _DetailedAppointmentPageState extends State<DetailedAppointmentPage> {
                         color: Colors.grey.withOpacity(0.3),
                         spreadRadius: 2,
                         blurRadius: 5,
-                        offset: Offset(0, 3),
+                        offset: const Offset(0, 3),
                       ),
                     ],
                     borderRadius: BorderRadius.circular(10), // Rounded corners
                   ),
-                  margin: EdgeInsets.all(10),
-                  padding: EdgeInsets.all(16.0),
+                  margin: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'Personal Info',
                         style: TextStyle(
                           fontSize: 18.0,
@@ -174,26 +174,26 @@ class _DetailedAppointmentPageState extends State<DetailedAppointmentPage> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      SizedBox(height: 10.0),
+                      const SizedBox(height: 10.0),
                       _buildPersonalInfoTile(
                           'Gender :', patientDetails!['gender'] ?? ''),
-                      Divider(),
+                      const Divider(),
                       _buildPersonalInfoTile(
                           'Blood Type :', patientDetails!['bloodType'] ?? ''),
-                      Divider(),
+                      const Divider(),
                       _buildPersonalInfoTile(
                           'Birthplace :', patientDetails!['birthplace'] ?? ''),
-                      Divider(),
+                      const Divider(),
                       _buildPersonalInfoTile(
                           'Height (cm) :', patientDetails!['height'] ?? ''),
-                      Divider(),
+                      const Divider(),
                       _buildPersonalInfoTile(
                           'Weight (kg) :', patientDetails!['weight'] ?? ''),
                     ],
                   ),
                 ),
               ],
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               GestureDetector(
                 onTap: () {
                   setState(() {
@@ -202,21 +202,21 @@ class _DetailedAppointmentPageState extends State<DetailedAppointmentPage> {
                 },
                 child: Container(
                   padding:
-                      EdgeInsets.fromLTRB(10, 15, 10, 15), // Adjusted padding
-                  margin: EdgeInsets.fromLTRB(15, 5, 15, 5),
+                      const EdgeInsets.fromLTRB(10, 15, 10, 15), // Adjusted padding
+                  margin: const EdgeInsets.fromLTRB(15, 5, 15, 5),
                   decoration: BoxDecoration(
-                    color: Color(0xFF199A8E),
+                    color: const Color(0xFF199A8E),
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.grey.withOpacity(0.3),
                         spreadRadius: 2,
                         blurRadius: 5,
-                        offset: Offset(0, 3),
+                        offset: const Offset(0, 3),
                       ),
                     ],
                   ),
-                  child: Row(
+                  child: const Row(
                     // Changed to Row for horizontal layout
                     mainAxisAlignment: MainAxisAlignment
                         .center, // Center align the content horizontally
@@ -240,10 +240,10 @@ class _DetailedAppointmentPageState extends State<DetailedAppointmentPage> {
                 ),
               ),
               if (showPrescriptionFields) ...[
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 TextField(
                   controller: prescriptionController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Prescription',
                     alignLabelWithHint: true,
                     hintText: 'Write prescription here',
@@ -251,28 +251,28 @@ class _DetailedAppointmentPageState extends State<DetailedAppointmentPage> {
                   ),
                   maxLines: 10,
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 GestureDetector(
                   onTap: () {
                     savePrescription();
                   },
                   child: Container(
                     padding:
-                        EdgeInsets.fromLTRB(10, 15, 10, 15), // Adjusted padding
-                    margin: EdgeInsets.fromLTRB(15, 5, 15, 5),
+                        const EdgeInsets.fromLTRB(10, 15, 10, 15), // Adjusted padding
+                    margin: const EdgeInsets.fromLTRB(15, 5, 15, 5),
                     decoration: BoxDecoration(
-                      color: Color(0xFF199A8E),
+                      color: const Color(0xFF199A8E),
                       borderRadius: BorderRadius.circular(12),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.3),
                           spreadRadius: 2,
                           blurRadius: 5,
-                          offset: Offset(0, 3),
+                          offset: const Offset(0, 3),
                         ),
                       ],
                     ),
-                    child: Row(
+                    child: const Row(
                       // Changed to Row for horizontal layout
                       mainAxisAlignment: MainAxisAlignment
                           .center, // Center align the content horizontally
@@ -310,7 +310,7 @@ class _DetailedAppointmentPageState extends State<DetailedAppointmentPage> {
         ListTile(
           title: Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.w500,
               color: Color(0xFF199A8E),
               fontSize: 16,
@@ -318,7 +318,7 @@ class _DetailedAppointmentPageState extends State<DetailedAppointmentPage> {
           ),
           trailing: Text(
             value,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16,
             ),
           ),
@@ -342,7 +342,7 @@ class _DetailedAppointmentPageState extends State<DetailedAppointmentPage> {
 
         // Show a snackbar to indicate successful prescription saving
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
+          const SnackBar(
             content: Text('Prescription saved successfully!'),
             duration: Duration(seconds: 2),
           ),
@@ -357,7 +357,7 @@ class _DetailedAppointmentPageState extends State<DetailedAppointmentPage> {
     } else {
       // Show an error message if prescription field is empty
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('Please enter prescription before saving'),
           duration: Duration(seconds: 2),
         ),

@@ -1,7 +1,6 @@
 // Packages imported
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 // Import UserProvider and Provider package
 import 'package:naybeyes/user_provider.dart';
@@ -14,6 +13,8 @@ import 'package:naybeyes/widgets/pill_reminder.dart';
 
 
 class PatientHomePage extends StatelessWidget {
+  const PatientHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +28,7 @@ class PatientHomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 40), // top margin
+              const SizedBox(height: 40), // top margin
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                 child: Column(
@@ -48,7 +49,7 @@ class PatientHomePage extends StatelessWidget {
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             border: Border.all(
-                              color: Color(0xFF199A8E), // Border color
+                              color: const Color(0xFF199A8E), // Border color
                               width: 1, // Border width
                             ),
                           ),
@@ -58,11 +59,11 @@ class PatientHomePage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(width: 15), // Add some spacing between the profile picture and the text
+                      const SizedBox(width: 15), // Add some spacing between the profile picture and the text
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             'Hey, ',
                             style: TextStyle(
                               fontSize: 16,
@@ -71,13 +72,13 @@ class PatientHomePage extends StatelessWidget {
                           ),
                           Text(
                             userData['firstName'],
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                               color: Color(0xFF199A8E),
                             ),
                           ),
-                          Text(
+                          const Text(
                             'How\'s your health today ?',
                             style: TextStyle(
                               fontSize: 16,
@@ -92,7 +93,7 @@ class PatientHomePage extends StatelessWidget {
                 ],
                 ),
               ),
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
 
               FutureBuilder<QuerySnapshot>(
                 future: FirebaseFirestore.instance
@@ -103,7 +104,7 @@ class PatientHomePage extends StatelessWidget {
                     .get(),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return CircularProgressIndicator();
+                    return const CircularProgressIndicator();
                   } else if (snapshot.hasError) {
                     return Text('Error: ${snapshot.error}');
                   } else {
@@ -118,8 +119,8 @@ class PatientHomePage extends StatelessWidget {
                         children: [
                           // Container for "Upcoming Appointments" and appointment widgets
                           Container(
-                            padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
-                            margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                            padding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
+                            margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(12.0),
@@ -128,7 +129,7 @@ class PatientHomePage extends StatelessWidget {
                                   color: Colors.grey.withOpacity(0.3),
                                   spreadRadius: 2,
                                   blurRadius: 5,
-                                  offset: Offset(0, 3),
+                                  offset: const Offset(0, 3),
                                 ),
                               ],
                             ),
@@ -140,7 +141,7 @@ class PatientHomePage extends StatelessWidget {
                                     // Navigate to the appointments page
                                     Navigator.pushNamed(context, '/patient/appointments');
                                   },
-                                  child: Row(
+                                  child: const Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
@@ -159,7 +160,7 @@ class PatientHomePage extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                                SizedBox(height: 10),
+                                const SizedBox(height: 10),
                                 // Display appointment widgets if there are appointments
                                 if (hasAppointments)
                                   Column(
@@ -170,7 +171,7 @@ class PatientHomePage extends StatelessWidget {
                                         future: FirebaseFirestore.instance.collection('Doctors').doc(doctorUid).get(),
                                         builder: (context, snapshot) {
                                           if (snapshot.connectionState == ConnectionState.waiting) {
-                                            return CircularProgressIndicator();
+                                            return const CircularProgressIndicator();
                                           } else if (snapshot.hasError) {
                                             return Text('Error: ${snapshot.error}');
                                           } else {
@@ -210,8 +211,8 @@ class PatientHomePage extends StatelessWidget {
 
 
               Container(
-                padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
-                margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                padding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
+                margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(12.0),
@@ -220,7 +221,7 @@ class PatientHomePage extends StatelessWidget {
                       color: Colors.grey.withOpacity(0.3),
                       spreadRadius: 2,
                       blurRadius: 5,
-                      offset: Offset(0, 3),
+                      offset: const Offset(0, 3),
                     ),
                   ],
                 ),
@@ -233,7 +234,7 @@ class PatientHomePage extends StatelessWidget {
                               // Navigate to the appointments page
                               Navigator.pushNamed(context, '/patient/medicines');
                             },
-                      child: Row(
+                      child: const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
@@ -253,7 +254,7 @@ class PatientHomePage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
 
                     PillReminderCard(
                       medicineName: 'Tramadol',
@@ -268,7 +269,7 @@ class PatientHomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
@@ -278,7 +279,7 @@ class PatientHomePage extends StatelessWidget {
                     Navigator.pushNamed(context, '/patient/search');
                   },
                   child: Container(
-                    margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                    margin: const EdgeInsets.fromLTRB(5, 0, 5, 0),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(50),
@@ -287,12 +288,12 @@ class PatientHomePage extends StatelessWidget {
                           color: Colors.grey.withOpacity(0.3),
                           spreadRadius: 2,
                           blurRadius: 5,
-                          offset: Offset(0, 3),
+                          offset: const Offset(0, 3),
                         ),
                       ],
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Row(
                         children: [
                           Icon(Icons.search), // Add search icon
@@ -320,7 +321,7 @@ class PatientHomePage extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.fromLTRB(15, 0, 15, 0), // Add padding around the grid
                 child: SingleChildScrollView(
@@ -328,15 +329,15 @@ class PatientHomePage extends StatelessWidget {
                   child: Row(
                     children: [
                       _buildSquareButton(context, Icons.folder, 'Records'),
-                      SizedBox(width: 15),
+                      const SizedBox(width: 15),
                       _buildSquareButton(context, Icons.description, 'Prescriptions'),
-                      SizedBox(width: 15),
+                      const SizedBox(width: 15),
                       _buildSquareButton(context, Icons.calendar_today, 'Appointments'),
-                      SizedBox(width: 15),
+                      const SizedBox(width: 15),
                       _buildSquareButton(context, Icons.medical_services, 'Medicines'),
-                      SizedBox(width: 15),
+                      const SizedBox(width: 15),
                       _buildSquareButton(context, Icons.local_hospital, 'Ambulance'),
-                      SizedBox(width: 15),
+                      const SizedBox(width: 15),
                       _buildSquareButton(context, Icons.pin_drop, 'Finder'),
                     ],
                   ),
@@ -361,11 +362,11 @@ class PatientHomePage extends StatelessWidget {
               //     ],
               //   ),
               // ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               Container(
-                padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
-                margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                padding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
+                margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(12.0),
@@ -374,11 +375,11 @@ class PatientHomePage extends StatelessWidget {
                       color: Colors.grey.withOpacity(0.3),
                       spreadRadius: 2,
                       blurRadius: 5,
-                      offset: Offset(0, 3),
+                      offset: const Offset(0, 3),
                     ),
                   ],
                 ),
-                child: Column(
+                child: const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -420,13 +421,13 @@ class PatientHomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
             ],
           ),
         );
         
         } else {
-        return CircularProgressIndicator();
+        return const CircularProgressIndicator();
         }
         }, //builder
       ),
@@ -462,14 +463,14 @@ class PatientHomePage extends StatelessWidget {
         width: double.infinity,
         height: double.infinity,
         decoration: BoxDecoration(
-          color: Color(0xFF199A8E), // Button color
+          color: const Color(0xFF199A8E), // Button color
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 1,
               blurRadius: 5,
-              offset: Offset(0, 3),
+              offset: const Offset(0, 3),
             ),
           ],
         ),
@@ -481,10 +482,10 @@ class PatientHomePage extends StatelessWidget {
               color: Colors.white,
               size: 36,
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
               text,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 16,
               ),

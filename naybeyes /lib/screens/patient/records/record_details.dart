@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 class RecordDetailPage extends StatelessWidget {
   final Map<String, dynamic> record;
 
-  const RecordDetailPage({required this.record});
+  const RecordDetailPage({super.key, required this.record});
   
   
   @override
@@ -17,40 +17,40 @@ class RecordDetailPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Details'),
+        title: const Text('Details'),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               
               Text(
-                '$formattedDate',
-                style: TextStyle(
+                formattedDate,
+                style: const TextStyle(
                   color: Colors.grey,
                   fontSize: 16,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
         
               Text(
                 '${record['title'] ?? 'N/A'}',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
         
               Text(
                 'Description\n${record['description'] ?? 'N/A'}',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
         
               
               GestureDetector(
@@ -69,11 +69,11 @@ class RecordDetailPage extends StatelessWidget {
                     // height: 400, // Adjust image height as needed
                     fit: BoxFit.cover, // Adjust image fit (optional)
                   )
-                : Text('No image available'),
+                : const Text('No image available'),
               ),
 
           
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
         
               
         

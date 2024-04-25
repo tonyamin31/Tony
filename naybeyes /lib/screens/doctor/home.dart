@@ -1,6 +1,5 @@
 // Packages imported
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 // Import UserProvider and Provider package
@@ -12,6 +11,8 @@ import 'package:provider/provider.dart';
 // import 'package:naybeyes/widgets/horizontal_doctor_card.dart';
 
 class DoctorHomePage extends StatelessWidget {
+  const DoctorHomePage({super.key});
+
   
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class DoctorHomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 40), // top margin
+              const SizedBox(height: 40), // top margin
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                 child: Column(
@@ -48,7 +49,7 @@ class DoctorHomePage extends StatelessWidget {
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               border: Border.all(
-                                color: Color(0xFF199A8E), // Border color
+                                color: const Color(0xFF199A8E), // Border color
                                 width: 1, // Border width
                               ),
                             ),
@@ -58,11 +59,11 @@ class DoctorHomePage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(width: 15), // Add some spacing between the profile picture and the text
+                        const SizedBox(width: 15), // Add some spacing between the profile picture and the text
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            const Text(
                               'Welcome back , ',
                               style: TextStyle(
                                 fontSize: 16,
@@ -71,13 +72,13 @@ class DoctorHomePage extends StatelessWidget {
                             ),
                             Text(
                               'Dr. $firstName',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                                 color: Color(0xFF199A8E),
                               ),
                             ),
-                            Text(
+                            const Text(
                               'We wish you a nice day.',
                               style: TextStyle(
                                 fontSize: 16,
@@ -94,7 +95,7 @@ class DoctorHomePage extends StatelessWidget {
                 ),
               ),
               
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
               
               
 
@@ -111,7 +112,7 @@ class DoctorHomePage extends StatelessWidget {
                     // );
                   },
                   child: Container(
-                    margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                    margin: const EdgeInsets.fromLTRB(5, 0, 5, 0),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(50),
@@ -120,12 +121,12 @@ class DoctorHomePage extends StatelessWidget {
                           color: Colors.grey.withOpacity(0.3),
                           spreadRadius: 2,
                           blurRadius: 5,
-                          offset: Offset(0, 3),
+                          offset: const Offset(0, 3),
                         ),
                       ],
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Row(
                         children: [
                           Icon(Icons.search), // Add search icon
@@ -152,13 +153,13 @@ class DoctorHomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 0),
+              const SizedBox(height: 0),
 
               Padding(
                 padding: const EdgeInsets.fromLTRB(15, 0, 15, 0), // Add padding around the grid
                 child: GridView.count(
                   shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   crossAxisCount: 3,
                   mainAxisSpacing: 12, // Spacing between rows
                   crossAxisSpacing: 12, // Spacing between columns
@@ -170,11 +171,11 @@ class DoctorHomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
 
               Container(
-                padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
-                margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                padding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
+                margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(12.0),
@@ -183,7 +184,7 @@ class DoctorHomePage extends StatelessWidget {
                       color: Colors.grey.withOpacity(0.3),
                       spreadRadius: 2,
                       blurRadius: 5,
-                      offset: Offset(0, 3),
+                      offset: const Offset(0, 3),
                     ),
                   ],
                 ),
@@ -195,7 +196,7 @@ class DoctorHomePage extends StatelessWidget {
                               // Navigate to the appointments page
                               Navigator.pushNamed(context, '/doctor/schedule');
                             },
-                      child: Row(
+                      child: const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
@@ -214,7 +215,7 @@ class DoctorHomePage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     
                     
                     // implement the logic here
@@ -228,7 +229,7 @@ class DoctorHomePage extends StatelessWidget {
                           .get(),
                       builder: (context, snapshot) {
                         if (snapshot.connectionState == ConnectionState.waiting) {
-                          return CircularProgressIndicator();
+                          return const CircularProgressIndicator();
                         } else if (snapshot.hasError) {
                           return Text('Error: ${snapshot.error}');
                         } else {
@@ -248,7 +249,7 @@ class DoctorHomePage extends StatelessWidget {
                             future: Future.wait(patientDataFutures),
                             builder: (context, patientSnapshot) {
                               if (patientSnapshot.connectionState == ConnectionState.waiting) {
-                                return CircularProgressIndicator();
+                                return const CircularProgressIndicator();
                               } else if (patientSnapshot.hasError) {
                                 return Text('Error: ${patientSnapshot.error}');
                               } else {
@@ -284,13 +285,13 @@ class DoctorHomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
             ],
           ),
         );
         
         } else {
-        return CircularProgressIndicator();
+        return const CircularProgressIndicator();
         }
         }, //builder
       ),
@@ -314,14 +315,14 @@ class DoctorHomePage extends StatelessWidget {
       },
       child: Container(
         decoration: BoxDecoration(
-          color: Color(0xFF199A8E), // Button color
+          color: const Color(0xFF199A8E), // Button color
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 1,
               blurRadius: 5,
-              offset: Offset(0, 3),
+              offset: const Offset(0, 3),
             ),
           ],
         ),
@@ -333,10 +334,10 @@ class DoctorHomePage extends StatelessWidget {
               color: Colors.white,
               size: 36,
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
               text,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 16,
               ),

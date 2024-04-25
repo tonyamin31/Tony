@@ -4,6 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:naybeyes/screens/doctor/patients/patient_card_insearch.dart';
 
 class MyPatientsPage extends StatefulWidget {
+  const MyPatientsPage({super.key});
+
   @override
   _MyPatientsPageState createState() => _MyPatientsPageState();
 }
@@ -80,9 +82,9 @@ class _MyPatientsPageState extends State<MyPatientsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Patients'),
+        title: const Text('Patients'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
           iconSize: 18.0,
           onPressed: () {
             Navigator.pop(context); // Navigate back when back arrow is clicked
@@ -92,7 +94,7 @@ class _MyPatientsPageState extends State<MyPatientsPage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
             child: Container(
@@ -104,7 +106,7 @@ class _MyPatientsPageState extends State<MyPatientsPage> {
                     color: Colors.grey.withOpacity(0.3),
                     spreadRadius: 2,
                     blurRadius: 5,
-                    offset: Offset(0, 3),
+                    offset: const Offset(0, 3),
                   ),
                 ],
               ),
@@ -112,8 +114,8 @@ class _MyPatientsPageState extends State<MyPatientsPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
                   children: [
-                    Icon(Icons.search), // Add search icon
-                    SizedBox(width: 15), // Add some space between icon and text
+                    const Icon(Icons.search), // Add search icon
+                    const SizedBox(width: 15), // Add some space between icon and text
                     Expanded(
                       child: TextField(
                         controller: _searchController,
@@ -121,7 +123,7 @@ class _MyPatientsPageState extends State<MyPatientsPage> {
                           // Call fetchDoctors whenever the text changes
                           fetchDoctors(searchQuery: value.trim());
                         },
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           hintText: 'Search for a patient',
                           hintStyle: TextStyle(
                             color: Colors.grey,
@@ -137,7 +139,7 @@ class _MyPatientsPageState extends State<MyPatientsPage> {
               ),
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Expanded(
             child: ListView.builder(
               itemCount: doctors.length,
@@ -163,7 +165,7 @@ class _MyPatientsPageState extends State<MyPatientsPage> {
                   );
                 } else {
                   // Handle case where patientData is null or not a Map<String, dynamic>
-                  return ListTile(
+                  return const ListTile(
                     title: Text('Unknown'),
                     subtitle: Text('Unknown'),
                   );

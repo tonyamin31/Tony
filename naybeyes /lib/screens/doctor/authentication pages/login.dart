@@ -12,15 +12,19 @@ import 'package:naybeyes/widgets/text_field.dart';
 
 // Parent Widget
 class PatientLoginPageParent extends StatelessWidget {
+  const PatientLoginPageParent({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Provider<UserProvider>(
       create: (_) => UserProvider(),
-      child: DoctorLoginPage(), // Your login widget
+      child: const DoctorLoginPage(), // Your login widget
     );
   }
 }
 class DoctorLoginPage extends StatefulWidget {
+  const DoctorLoginPage({super.key});
+
   @override
   _DoctorLoginPageState createState() => _DoctorLoginPageState();
 }
@@ -48,7 +52,7 @@ class _DoctorLoginPageState extends State<DoctorLoginPage> {
                   width: 200,
                   height: 100,
                 ),
-                Icon(Icons.local_hospital,color: Color(0xFF199A8E),),
+                const Icon(Icons.local_hospital,color: Color(0xFF199A8E),),
 
                 Visibility(
                   visible: errorMessage.isNotEmpty, // Show the container only if there is an error message
@@ -57,17 +61,17 @@ class _DoctorLoginPageState extends State<DoctorLoginPage> {
                       color: Colors.red.withOpacity(0.5), // Red background with 0.5 opacity
                       borderRadius: BorderRadius.circular(5), // Optional: Add border radius for rounded corners
                     ),
-                    padding: EdgeInsets.fromLTRB(60, 10, 60, 10), // Add padding to the container
+                    padding: const EdgeInsets.fromLTRB(60, 10, 60, 10), // Add padding to the container
                     child: Text(
                       errorMessage,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white, // Text color
                       ),
                     ),
                   ),
                 ),
 
-                SizedBox(height: 20), // Reduced space after logo
+                const SizedBox(height: 20), // Reduced space after logo
                 Form( // Wrap form fields within a Form widget (optional)
                   child: Column(
                     children: [
@@ -76,24 +80,24 @@ class _DoctorLoginPageState extends State<DoctorLoginPage> {
                         labelText: 'Email',
                         keyboardType: TextInputType.emailAddress,
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       CustomTextField(
                         controller: passwordController,
                         labelText: 'Password',
                         obscureText: true,
                       ),
-                    SizedBox(height: 8), // Adjust the spacing between the password field and the text
+                    const SizedBox(height: 8), // Adjust the spacing between the password field and the text
                     Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Spacer(),
+                      const Spacer(),
                       Padding(
                         padding: const EdgeInsets.only(right: 15.0), // Adjust the left padding as needed
                         child: GestureDetector(
                           onTap: () {
                           Navigator.pushNamed(context, '/forgetpassword');
                           },
-                          child: Text(
+                          child: const Text(
                             'Forgot your password ?',
                             style: TextStyle(
                               fontSize: 14,
@@ -110,7 +114,7 @@ class _DoctorLoginPageState extends State<DoctorLoginPage> {
                     ],
                   ),
                 ),
-                SizedBox(height: 15), 
+                const SizedBox(height: 15), 
 
                 CustomButton(
                   text: 'Login',
@@ -150,12 +154,12 @@ class _DoctorLoginPageState extends State<DoctorLoginPage> {
                       }
                     },
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       'Don\'t have an account ? ',
                       style: TextStyle(color: Colors.grey),
                     ),
@@ -163,7 +167,7 @@ class _DoctorLoginPageState extends State<DoctorLoginPage> {
                       onTap: () {
                         Navigator.pushReplacementNamed(context, '/doctor/signup');
                       },
-                      child: Text(
+                      child: const Text(
                         'Sign Up',
                         style: TextStyle(
                           color: Color(0xFF199A8E),
@@ -173,9 +177,9 @@ class _DoctorLoginPageState extends State<DoctorLoginPage> {
                     ),
                   ],
                 ),
-                SizedBox(height: 120),
+                const SizedBox(height: 120),
                 IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.arrow_back,
                     color: Color(0xFF199A8E), // Set the color of the icon
                   ),

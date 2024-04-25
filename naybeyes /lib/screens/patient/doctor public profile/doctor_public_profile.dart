@@ -6,7 +6,7 @@ import 'package:naybeyes/screens/patient/appointments/booking_screen.dart';
 class PublicDoctorProfilePage extends StatelessWidget {
   final String doctorUid;
 
-  PublicDoctorProfilePage({required this.doctorUid});
+  const PublicDoctorProfilePage({super.key, required this.doctorUid});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class PublicDoctorProfilePage extends StatelessWidget {
       future: FirebaseFirestore.instance.collection('Doctors').doc(doctorUid).get(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return CircularProgressIndicator();
+          return const CircularProgressIndicator();
         } else if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}');
         } else {
@@ -23,13 +23,13 @@ class PublicDoctorProfilePage extends StatelessWidget {
           if (doctorData != null) {
             return Scaffold(
               appBar: AppBar(
-                title: Text('Doctor Profile'),
+                title: const Text('Doctor Profile'),
               ),
               body: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     GestureDetector(
                       onTap: () {
                         Navigator.push(
@@ -50,11 +50,11 @@ class PublicDoctorProfilePage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Container(
                       width: double.infinity,
-                      padding: EdgeInsets.all(16),
-                      margin: EdgeInsets.symmetric(horizontal: 8),
+                      padding: const EdgeInsets.all(16),
+                      margin: const EdgeInsets.symmetric(horizontal: 8),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10),
@@ -63,7 +63,7 @@ class PublicDoctorProfilePage extends StatelessWidget {
                             color: Colors.grey.withOpacity(0.3),
                             spreadRadius: 2,
                             blurRadius: 5,
-                            offset: Offset(0, 3),
+                            offset: const Offset(0, 3),
                           ),
                         ],
                       ),
@@ -72,16 +72,16 @@ class PublicDoctorProfilePage extends StatelessWidget {
                         children: [
                           Text(
                             'Dr. ${doctorData['firstName']} ${doctorData['lastName']}',
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 22,
                               fontWeight: FontWeight.w500,
                               color: Color(0xFF199A8E),
                             ),
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Text(
                             '• ${doctorData['specialization']}',
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 16,
                               color: Color(0xFF199A8E),
                             ),
@@ -89,7 +89,7 @@ class PublicDoctorProfilePage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     ElevatedButton(
                       onPressed: () {
                         Navigator.push(
@@ -102,12 +102,12 @@ class PublicDoctorProfilePage extends StatelessWidget {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                        padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
                       ),
-                      child: SizedBox(
+                      child: const SizedBox(
                         width: 200,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -128,13 +128,13 @@ class PublicDoctorProfilePage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
                   ],
                 ),
               ),
             );
           } else {
-            return Text('Doctor data not found.');
+            return const Text('Doctor data not found.');
           }
         }
       },

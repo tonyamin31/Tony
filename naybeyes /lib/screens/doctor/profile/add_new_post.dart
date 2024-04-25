@@ -8,6 +8,8 @@ import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:intl/intl.dart';
 
 class AddNewPostPage extends StatefulWidget {
+  const AddNewPostPage({super.key});
+
   @override
   _AddNewPostPageState createState() => _AddNewPostPageState();
 }
@@ -22,7 +24,7 @@ class _AddNewPostPageState extends State<AddNewPostPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add New Post'),
+        title: const Text('Add New Post'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -42,18 +44,18 @@ class _AddNewPostPageState extends State<AddNewPostPage> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    contentPadding: EdgeInsets.fromLTRB(20, 15, 15, 20),
+                    contentPadding: const EdgeInsets.fromLTRB(20, 15, 15, 20),
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
 
                 GestureDetector(
                   onTap: () {
                     _selectImage();
                   },
                   child: Container(
-                    padding: EdgeInsets.fromLTRB(10, 15, 10, 15),
-                    margin: EdgeInsets.fromLTRB(15, 5, 15, 5),
+                    padding: const EdgeInsets.fromLTRB(10, 15, 10, 15),
+                    margin: const EdgeInsets.fromLTRB(15, 5, 15, 5),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12),
@@ -62,11 +64,11 @@ class _AddNewPostPageState extends State<AddNewPostPage> {
                           color: Colors.grey.withOpacity(0.3),
                           spreadRadius: 2,
                           blurRadius: 5,
-                          offset: Offset(0, 3),
+                          offset: const Offset(0, 3),
                         ),
                       ],
                     ),
-                    child: Row(
+                    child: const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
@@ -87,20 +89,20 @@ class _AddNewPostPageState extends State<AddNewPostPage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
 
                 _imageFiles != null && _imageFiles!.isNotEmpty
                     ? Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Selected Image',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Color(0xFF199A8E),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
 
                     Wrap(
                       spacing: 10,
@@ -116,29 +118,29 @@ class _AddNewPostPageState extends State<AddNewPostPage> {
                     ),
                   ],
                 )
-                    : SizedBox.shrink(),
-                SizedBox(height: 20),
+                    : const SizedBox.shrink(),
+                const SizedBox(height: 20),
 
                 GestureDetector(
                   onTap: () {
                     _submitForm();
                   },
                   child: Container(
-                    padding: EdgeInsets.fromLTRB(10, 15, 10, 15),
-                    margin: EdgeInsets.fromLTRB(15, 5, 15, 5),
+                    padding: const EdgeInsets.fromLTRB(10, 15, 10, 15),
+                    margin: const EdgeInsets.fromLTRB(15, 5, 15, 5),
                     decoration: BoxDecoration(
-                      color: Color(0xFF199A8E),
+                      color: const Color(0xFF199A8E),
                       borderRadius: BorderRadius.circular(12),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.3),
                           spreadRadius: 2,
                           blurRadius: 5,
-                          offset: Offset(0, 3),
+                          offset: const Offset(0, 3),
                         ),
                       ],
                     ),
-                    child: Row(
+                    child: const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
@@ -177,9 +179,9 @@ class _AddNewPostPageState extends State<AddNewPostPage> {
 
   Future<void> _selectImage() async {
     final imagePicker = ImagePicker();
-    final List<XFile>? pickedFiles = await imagePicker.pickMultiImage();
+    final List<XFile> pickedFiles = await imagePicker.pickMultiImage();
 
-    if (pickedFiles != null && pickedFiles.isNotEmpty) {
+    if (pickedFiles.isNotEmpty) {
       setState(() {
         _imageFiles = pickedFiles;
       });
@@ -193,7 +195,7 @@ class _AddNewPostPageState extends State<AddNewPostPage> {
         final firebase_storage.Reference ref = firebase_storage.FirebaseStorage.instance
             .ref()
             .child('DoctorPosts')
-            .child(DateTime.now().millisecondsSinceEpoch.toString() + '.jpg');
+            .child('${DateTime.now().millisecondsSinceEpoch}.jpg');
         await ref.putFile(File(imageFile.path));
         final imageUrl = await ref.getDownloadURL();
         imageUrls.add(imageUrl);
@@ -235,7 +237,7 @@ class _AddNewPostPageState extends State<AddNewPostPage> {
 
     // Show success message
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
+      const SnackBar(
         backgroundColor: Color(0xFF199A8E),
         content: Text(
           'Posted successfully.',

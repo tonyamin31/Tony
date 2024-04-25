@@ -5,10 +5,10 @@ class CustomBackButton extends StatelessWidget {
   final VoidCallback onPressed; // Callback for handling back button press
 
   const CustomBackButton({
-    Key? key,
+    super.key,
     required this.radius,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +20,11 @@ class CustomBackButton extends StatelessWidget {
         child: Container(
           width: radius * 2, // Width equal to twice the radius
           height: radius * 2, // Height equal to twice the radius
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             shape: BoxShape.circle,
             color: Colors.green, // Your app's green color
           ),
-          child: Center(
+          child: const Center(
             child: Icon(
               Icons.arrow_back_ios,
               color: Colors.white, // White color for the icon

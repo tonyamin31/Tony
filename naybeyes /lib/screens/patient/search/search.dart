@@ -5,6 +5,8 @@ import 'package:naybeyes/widgets/specialization_name.dart';
 import 'package:naybeyes/drop_down_lists/specializations.dart';
 
 class SearchPage extends StatefulWidget {
+  const SearchPage({super.key});
+
   @override
   _SearchPageState createState() => _SearchPageState();
 }
@@ -40,9 +42,9 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Specializations'),
+        title: const Text('Specializations'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
           iconSize: 18.0,
           onPressed: () {
             Navigator.pop(context); // Navigate back when back arrow is clicked
@@ -53,11 +55,11 @@ class _SearchPageState extends State<SearchPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
               child: Container(
-                margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                margin: const EdgeInsets.fromLTRB(5, 0, 5, 0),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(50),
@@ -66,7 +68,7 @@ class _SearchPageState extends State<SearchPage> {
                       color: Colors.grey.withOpacity(0.3),
                       spreadRadius: 2,
                       blurRadius: 5,
-                      offset: Offset(0, 3),
+                      offset: const Offset(0, 3),
                     ),
                   ],
                 ),
@@ -74,15 +76,15 @@ class _SearchPageState extends State<SearchPage> {
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Row(
                     children: [
-                      Icon(Icons.search), // Add search icon
-                      SizedBox(width: 15), // Add some space between icon and text
+                      const Icon(Icons.search), // Add search icon
+                      const SizedBox(width: 15), // Add some space between icon and text
                       Expanded(
                         child: TextField(
                           controller: _specializationSearchController,
                           onChanged: (value) {
                             searchSpecializations(value.trim());
                           },
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'Search for a specialization',
                             hintStyle: TextStyle(
                               color: Colors.grey,
@@ -98,7 +100,7 @@ class _SearchPageState extends State<SearchPage> {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
@@ -108,12 +110,12 @@ class _SearchPageState extends State<SearchPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => FindDoctorPage(),
+                      builder: (context) => const FindDoctorPage(),
                     ),
                   );
                },
                 child: Container(
-                  margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                  margin: const EdgeInsets.fromLTRB(5, 0, 5, 0),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(50),
@@ -122,12 +124,12 @@ class _SearchPageState extends State<SearchPage> {
                         color: Colors.grey.withOpacity(0.3),
                         spreadRadius: 2,
                         blurRadius: 5,
-                        offset: Offset(0, 3),
+                        offset: const Offset(0, 3),
                       ),
                     ],
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
                     child: Row(
                       children: [
                         Icon(Icons.search), // Add search icon
@@ -155,13 +157,13 @@ class _SearchPageState extends State<SearchPage> {
               ),
             ),
             
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: ListView.builder(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: filteredSpecializations.length,
                 itemBuilder: (context, index) {
                   String specialization = filteredSpecializations[index];
@@ -179,7 +181,7 @@ class _SearchPageState extends State<SearchPage> {
                 },
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
           ],
         ),
       ),

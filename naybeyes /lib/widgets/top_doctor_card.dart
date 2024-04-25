@@ -11,7 +11,7 @@ class TopDoctorCard extends StatelessWidget {
   final String address;
   final String imageUrl;
 
-  TopDoctorCard({
+  const TopDoctorCard({super.key, 
     required this.name,
     required this.specialization,
     required this.address,
@@ -25,11 +25,11 @@ class TopDoctorCard extends StatelessWidget {
         // Navigate to the doctor's profile page
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => DoctorProfilePage()),
+          MaterialPageRoute(builder: (context) => const DoctorProfilePage()),
         );
       },
       child: Container(
-        margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+        margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
@@ -38,11 +38,11 @@ class TopDoctorCard extends StatelessWidget {
               color: Colors.grey.withOpacity(0.3),
               spreadRadius: 2,
               blurRadius: 5,
-              offset: Offset(0, 3),
+              offset: const Offset(0, 3),
             ),
           ]
         ),
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -55,7 +55,7 @@ class TopDoctorCard extends StatelessWidget {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: Color(0xFF199A8E), // Border color
+                        color: const Color(0xFF199A8E), // Border color
                         width: 1, // Border width
                       ),
                     ),
@@ -65,28 +65,28 @@ class TopDoctorCard extends StatelessWidget {
                     ),
                   ),
                   
-                  SizedBox(width: 20),
+                  const SizedBox(width: 20),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         'Dr. $name',
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
                         specialization,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                           color: Colors.grey,
                         ),
                       ),
                       Text(
                         address,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                           color: Colors.grey,
                         ),

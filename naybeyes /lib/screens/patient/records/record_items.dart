@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:naybeyes/screens/patient/records/record_card.dart';
 import 'package:naybeyes/screens/patient/records/record_details.dart'; // Import RecordDetailPage
@@ -8,7 +7,7 @@ class RecordList extends StatefulWidget {
   final String name;
   final String collectionPath;
 
-  const RecordList({required this.collectionPath, required this.name});
+  const RecordList({super.key, required this.collectionPath, required this.name});
 
   @override
   _RecordListState createState() => _RecordListState();
@@ -40,7 +39,7 @@ class _RecordListState extends State<RecordList> {
 
           switch (snapshot.connectionState) {
             case ConnectionState.waiting:
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             default:
               return ListView.builder(
                 itemCount: snapshot.data!.docs.length,

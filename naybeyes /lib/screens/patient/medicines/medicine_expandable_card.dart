@@ -7,7 +7,7 @@ class MedicineCard extends StatefulWidget {
   final String sideEffects;
   final Function(String) onDelete;
 
-  MedicineCard({
+  const MedicineCard({super.key, 
     required this.medicineName,
     required this.description,
     required this.dosage,
@@ -25,22 +25,22 @@ class _MedicineCardState extends State<MedicineCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(16, 6, 16, 6),
-      margin: EdgeInsets.fromLTRB(12, 6, 12, 6),
+      padding: const EdgeInsets.fromLTRB(16, 6, 16, 6),
+      margin: const EdgeInsets.fromLTRB(12, 6, 12, 6),
       decoration: BoxDecoration(
-        color: _isExpanded ? Color(0xFF199A8E) : Colors.white,
+        color: _isExpanded ? const Color(0xFF199A8E) : Colors.white,
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.3),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           ),
         ],
       ),
       child: ExpansionTile(
-        tilePadding: EdgeInsets.all(0),
+        tilePadding: const EdgeInsets.all(0),
         backgroundColor: Colors.transparent,
         collapsedBackgroundColor: Colors.transparent,
         shape: RoundedRectangleBorder(
@@ -49,12 +49,12 @@ class _MedicineCardState extends State<MedicineCard> {
         title: Row(
           children: [
             IconButton(
-              icon: Icon(Icons.close_rounded, size: 22,),
+              icon: const Icon(Icons.close_rounded, size: 22,),
               onPressed: () {
                 widget.onDelete(widget.medicineName); // Call the onDelete function when delete icon is tapped
               },
             ),
-            SizedBox(width: 6,),
+            const SizedBox(width: 6,),
             Text(
               widget.medicineName,
               style: TextStyle(
@@ -78,12 +78,12 @@ class _MedicineCardState extends State<MedicineCard> {
               children: [
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.description,
                       size: 16, // Adjust icon size
                       color: Colors.white, // Adjust icon color
                     ),
-                    SizedBox(width: 6), // Add spacing between icon and text
+                    const SizedBox(width: 6), // Add spacing between icon and text
                     Text(
                       'Description:',
                       style: TextStyle(
@@ -93,22 +93,22 @@ class _MedicineCardState extends State<MedicineCard> {
                     ),
                   ],
                 ),
-                SizedBox(width: 6),
+                const SizedBox(width: 6),
                 Text(
                   widget.description,
                   style: TextStyle(
                     color: _isExpanded ? Colors.white : Colors.black,
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.medication,
                       size: 16, // Adjust icon size
                       color: Colors.white, // Adjust icon color
                     ),
-                    SizedBox(width: 6), // Add spacing between icon and text
+                    const SizedBox(width: 6), // Add spacing between icon and text
                     Text(
                       'Dosage:',
                       style: TextStyle(
@@ -124,15 +124,15 @@ class _MedicineCardState extends State<MedicineCard> {
                     color: _isExpanded ? Colors.white : Colors.black,
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.warning,
                       size: 16, // Adjust icon size
                       color: Colors.white, // Adjust icon color
                     ),
-                    SizedBox(width: 6), // Add spacing between icon and text
+                    const SizedBox(width: 6), // Add spacing between icon and text
                     Text(
                       'Side Effects:',
                       style: TextStyle(

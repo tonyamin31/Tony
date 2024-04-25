@@ -21,7 +21,7 @@ class DocAppointmentCard extends StatelessWidget {
   final String doctorUid;
   final String appointmentID;
 
-  DocAppointmentCard({
+  const DocAppointmentCard({super.key, 
     required this.firstName,
     required this.lastName,
     required this.avatar,
@@ -57,8 +57,8 @@ class DocAppointmentCard extends StatelessWidget {
         );
       },
       child: Container(
-        padding: EdgeInsets.all(16),
-        margin: EdgeInsets.symmetric(vertical: 8),
+        padding: const EdgeInsets.all(16),
+        margin: const EdgeInsets.symmetric(vertical: 8),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12),
@@ -67,7 +67,7 @@ class DocAppointmentCard extends StatelessWidget {
               color: Colors.grey.withOpacity(0.3),
               spreadRadius: 2,
               blurRadius: 5,
-              offset: Offset(0, 3),
+              offset: const Offset(0, 3),
             ),
           ],
         ),
@@ -75,17 +75,17 @@ class DocAppointmentCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              padding: EdgeInsets.all(4),
+              padding: const EdgeInsets.all(4),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(color: Color(0xFF199A8E), width: 2),
+                border: Border.all(color: const Color(0xFF199A8E), width: 2),
               ),
               child: CircleAvatar(
                 radius: 50,
                 backgroundImage: NetworkImage(avatar),
               ),
             ),
-            SizedBox(width: 16),
+            const SizedBox(width: 16),
       
             Expanded(
               child: Column(
@@ -93,7 +93,7 @@ class DocAppointmentCard extends StatelessWidget {
                 children: [
                   Text(
                     'Dr. $firstName $lastName',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                     ),
@@ -102,34 +102,34 @@ class DocAppointmentCard extends StatelessWidget {
 
                   Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.location_on,
                         color: Colors.grey,
                         size: 19,
                       ),
-                      SizedBox(width: 8),
+                      const SizedBox(width: 8),
                       Text(
                         address,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                           color: Colors.grey,
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
 
                   Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.calendar_today,
                         size: 16,
                         color: Colors.grey,
                       ),
-                      SizedBox(width: 8),
+                      const SizedBox(width: 8),
                       Text(
                         appointmentDate,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
                         ),
@@ -139,15 +139,15 @@ class DocAppointmentCard extends StatelessWidget {
       
                   Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.access_time,
                         size: 16,
                         color: Colors.grey,
                       ),
-                      SizedBox(width: 8),
+                      const SizedBox(width: 8),
                       Text(
                         appointmentTime,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
                         ),
@@ -157,15 +157,15 @@ class DocAppointmentCard extends StatelessWidget {
                   
                   Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.info,
                         size: 16,
                         color: Colors.grey,
                       ),
-                      SizedBox(width: 8),
+                      const SizedBox(width: 8),
                       Text(
                         status,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
                         ),

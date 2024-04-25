@@ -5,6 +5,8 @@ import 'package:naybeyes/screens/patient/records/add_new_record.dart';
 import 'package:naybeyes/screens/patient/records/record_items.dart';
 
 class RecordsPage extends StatefulWidget {
+  const RecordsPage({super.key});
+
   @override
   _RecordsPageState createState() => _RecordsPageState();
 }
@@ -14,7 +16,7 @@ class _RecordsPageState extends State<RecordsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Medical Records'),
+        title: const Text('Medical Records'),
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
@@ -22,16 +24,16 @@ class _RecordsPageState extends State<RecordsPage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => AddNewRecordPage(), // Replace with your page
+              builder: (context) => const AddNewRecordPage(), // Replace with your page
             ),
           );
         },
-        label: Text(
+        label: const Text(
           'Add New Record',
           style: TextStyle(color: Colors.white),
         ),
-        icon: Icon(Icons.add, color: Colors.white),
-        backgroundColor: Color(0xFF199A8E),
+        icon: const Icon(Icons.add, color: Colors.white),
+        backgroundColor: const Color(0xFF199A8E),
       ),
       body: ListView.builder(
         itemCount: recordTypes.length,
@@ -40,8 +42,8 @@ class _RecordsPageState extends State<RecordsPage> {
           return GestureDetector(
             onTap: () => _navigateToRecordList(recordType.name, recordType.collectionPath),
             child: Container(
-              padding: EdgeInsets.fromLTRB(5, 3, 5, 3),
-              margin: EdgeInsets.fromLTRB(15, 5, 15, 5),
+              padding: const EdgeInsets.fromLTRB(5, 3, 5, 3),
+              margin: const EdgeInsets.fromLTRB(15, 5, 15, 5),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
@@ -50,20 +52,20 @@ class _RecordsPageState extends State<RecordsPage> {
                     color: Colors.grey.withOpacity(0.3),
                     spreadRadius: 2,
                     blurRadius: 5,
-                    offset: Offset(0, 3),
+                    offset: const Offset(0, 3),
                   ),
                 ],
               ),
               child: ListTile(
                 title: Text(
                   recordType.name,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18,
                     color: Color(0xFF199A8E),
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                trailing: Icon(
+                trailing: const Icon(
                   Icons.arrow_forward_ios,
                   size: 18,
                   color: Color(0xFF199A8E),

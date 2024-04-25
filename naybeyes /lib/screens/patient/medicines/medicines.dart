@@ -6,6 +6,8 @@ import 'package:naybeyes/screens/patient/medicines/add_custom_medicine.dart';
 import 'package:naybeyes/screens/patient/medicines/medicine_expandable_card.dart';
 
 class MedicinesPage extends StatefulWidget {
+  const MedicinesPage({super.key});
+
   @override
   _MedicinesPageState createState() => _MedicinesPageState();
 }
@@ -53,7 +55,7 @@ class _MedicinesPageState extends State<MedicinesPage> {
       fetchPatientMedicines();
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           backgroundColor: Color(0xFF199A8E),
           content: Text(
             'Medicine deleted successfully',
@@ -71,9 +73,9 @@ class _MedicinesPageState extends State<MedicinesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Medicines'),
+        title: const Text('Medicines'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
           iconSize: 18.0,
           onPressed: () {
             Navigator.pop(context); // Navigate back when back arrow is clicked
@@ -86,15 +88,15 @@ class _MedicinesPageState extends State<MedicinesPage> {
           // Navigate to AddMedicinePage
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => AddMedicinePage()),
+            MaterialPageRoute(builder: (context) => const AddMedicinePage()),
           );
         },
-        label: Text(
+        label: const Text(
           'Custom Medicine',
           style: TextStyle(color: Colors.white),
         ),
-        icon: Icon(Icons.add, color: Colors.white),
-        backgroundColor: Color(0xFF199A8E),
+        icon: const Icon(Icons.add, color: Colors.white),
+        backgroundColor: const Color(0xFF199A8E),
       ),
 
       body: Padding(
@@ -104,13 +106,13 @@ class _MedicinesPageState extends State<MedicinesPage> {
             children: [
 
               Container(
-                margin: EdgeInsets.fromLTRB(30, 0, 30, 0), // Adjust margins as needed
+                margin: const EdgeInsets.fromLTRB(30, 0, 30, 0), // Adjust margins as needed
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Expanded(
                       child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 10),
+                        margin: const EdgeInsets.symmetric(horizontal: 10),
                         child: DropdownButtonFormField<String>(
                           value: _selectedMedicine,
                           items: medicines
@@ -129,7 +131,7 @@ class _MedicinesPageState extends State<MedicinesPage> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            contentPadding: EdgeInsets.fromLTRB(20, 15, 15, 20),
+                            contentPadding: const EdgeInsets.fromLTRB(20, 15, 15, 20),
                           ),
                         ),
                       ),
@@ -151,7 +153,7 @@ class _MedicinesPageState extends State<MedicinesPage> {
                             });
                             fetchPatientMedicines(); // to refresh the page
                             ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
+                              const SnackBar(
                                 backgroundColor: Color(0xFF199A8E),
                                 content: Text(
                                   'Medicine added successfully',
@@ -166,7 +168,7 @@ class _MedicinesPageState extends State<MedicinesPage> {
                           }
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
+                            const SnackBar(
                               backgroundColor: Color.fromARGB(255, 51, 51, 51),
                               content: Text(
                                 'No medicine selected',
@@ -180,21 +182,21 @@ class _MedicinesPageState extends State<MedicinesPage> {
 
                     
                       child: Container(
-                        margin: EdgeInsets.all(5),
-                        padding: EdgeInsets.all(15),
+                        margin: const EdgeInsets.all(5),
+                        padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
-                          color: Color(0xFF199A8E),
+                          color: const Color(0xFF199A8E),
                           borderRadius: BorderRadius.circular(10),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.grey.withOpacity(0.3),
                               spreadRadius: 2,
                               blurRadius: 5,
-                              offset: Offset(0, 3),
+                              offset: const Offset(0, 3),
                             ),
                           ],
                         ),
-                        child: Icon(
+                        child: const Icon(
                           Icons.add,
                           color: Colors.white,
                         ),
@@ -203,7 +205,7 @@ class _MedicinesPageState extends State<MedicinesPage> {
                   ],
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
 
               for (String medicineName in patientMedicines)
                 MedicineCard(

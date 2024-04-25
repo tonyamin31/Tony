@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 
 class AmbulancePage extends StatelessWidget {
+  const AmbulancePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ambulance'),
+        title: const Text('ambulance'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
           iconSize: 18.0,
           onPressed: () {
             Navigator.pop(context); // Navigate back when back arrow is clicked
           },
         ),
       ),
-      body: Center(
+      body: const Center(
         child: Text(
           'Ambulance here',
           style: TextStyle(
