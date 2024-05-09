@@ -6,6 +6,7 @@ import 'package:medverse/login/SignUp.dart';
 import 'package:medverse/login/Verfication.dart';
 import 'package:medverse/login/login_as.dart';
 import 'package:medverse/search.dart';
+import 'package:medverse/finder.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Home page',
       initialRoute: '/home',
-      routes: {'/home': (context) => login_as()},
+      routes: {'/home': (context) => finder()},
     );
   }
 }

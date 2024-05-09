@@ -458,6 +458,9 @@ class PatientHomePage extends StatelessWidget {
         else if (text == 'Profile Copy') {
           Navigator.pushNamed(context, '/patient/profile_copy');
         }
+        else if (text == 'Finder') {
+          Navigator.pushNamed(context, '/patient/finder');
+        }
       },
       child: Container(
         width: double.infinity,

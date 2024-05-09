@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class FinderPage extends StatelessWidget {
   const FinderPage({super.key});
+  
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +20,24 @@ class FinderPage extends StatelessWidget {
         ),
       ),
       body: const Center(
-        child: Text(
-          'Finder here',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+        child: Column(
+          children: [
+            // GoogleMap(
+            //     onMapCreated: _onMapCreated,
+            //     initialCameraPosition: CameraPosition(
+            //       target: _center,
+            //       zoom: 11.0,
+            //     ),),
+            Text(
+              'Finder here',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
+        
       ),
     );
   }
