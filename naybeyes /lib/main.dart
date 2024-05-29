@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:naybeyes/firebase_options.dart';
-import 'package:naybeyes/screens/patient/finder.dart';
 
 // user provider
 import 'package:naybeyes/user_provider.dart';
@@ -22,8 +21,9 @@ import 'package:naybeyes/screens/patient/records/all_records.dart';
 import 'package:naybeyes/screens/patient/ambulance.dart';
 import 'package:naybeyes/screens/patient/search/search.dart';
 import 'package:naybeyes/screens/patient/prescriptions/prescriptions.dart';
+import 'package:naybeyes/screens/patient/finder.dart';
 
-    // P Authentication
+// P Authentication
 import 'package:naybeyes/screens/patient/authentication pages/login.dart';
 import 'package:naybeyes/screens/patient/authentication pages/signup.dart';
 
@@ -33,20 +33,18 @@ import 'package:naybeyes/screens/doctor/profile/profile.dart';
 import 'package:naybeyes/screens/doctor/appointments/schedule.dart';
 import 'package:naybeyes/screens/doctor/prescriptions/prescriptions.dart';
 import 'package:naybeyes/screens/doctor/patients/my_patients.dart';
-    // D Authentication
+// D Authentication
 import 'package:naybeyes/screens/doctor/authentication pages/login.dart';
 import 'package:naybeyes/screens/doctor/authentication pages/signup.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => UserProvider()),
-        // Add Other providers 
+        // Add Other providers
       ],
       child: const MedVerse(),
     ),
@@ -58,21 +56,20 @@ class MedVerse extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       theme: ThemeData().copyWith(
-      colorScheme: ThemeData().colorScheme.copyWith(primary: const Color(0xFF199A8E)),   // focus border color of the TextField
-    ),
-    
+        colorScheme: ThemeData().colorScheme.copyWith(
+            primary:
+                const Color(0xFF199A8E)), // focus border color of the TextField
+      ),
       title: 'MedVerse',
       initialRoute: '/splashscreen',
       debugShowCheckedModeBanner: false,
-
       routes: {
         '/splashscreen': (context) => const SplashScreen(),
         '/roleselection': (context) => const RoleSelectionPage(),
-        '/forgetpassword': (context) => ForgetPasswordPage(), 
-        
+        '/forgetpassword': (context) => ForgetPasswordPage(),
+
         // Patient Side routes
         '/patient/home': (context) => const PatientHomePage(),
         '/patient/appointments': (context) => const AppointmentsPage(),
@@ -96,10 +93,7 @@ class MedVerse extends StatelessWidget {
         '/doctor/patients': (context) => const MyPatientsPage(),
         '/doctor/login': (context) => const DoctorLoginPage(),
         '/doctor/signup': (context) => const DoctorSignUpPage(),
-        
-
       },
     );
-    
   }
 }
