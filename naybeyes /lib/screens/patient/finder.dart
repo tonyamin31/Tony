@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:naybeyes/screens/patient/location/location_helper.dart';
 
 class FinderPage extends StatefulWidget {
   const FinderPage({super.key});
@@ -14,13 +16,13 @@ class MapSampleState extends State<FinderPage> {
       Completer<GoogleMapController>();
 
   static const CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
+    target: LatLng(29.99644404285075, 30.965434496031975),
     zoom: 14.4746,
   );
 
   static const CameraPosition _kLake = CameraPosition(
       bearing: 192.8334901395799,
-      target: LatLng(37.43296265331129, -122.08832357078792),
+      target: LatLng(29.99749081198728, 30.967321616651674),
       tilt: 59.440717697143555,
       zoom: 19.151926040649414);
 
@@ -38,7 +40,8 @@ class MapSampleState extends State<FinderPage> {
         ),
       ),
       body: GoogleMap(
-        mapType: MapType.hybrid,
+        mapType: MapType.normal,
+        zoomControlsEnabled: false,
         initialCameraPosition: _kGooglePlex,
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
@@ -46,8 +49,8 @@ class MapSampleState extends State<FinderPage> {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _goToTheLake,
-        label: const Text('To the lake!'),
-        icon: const Icon(Icons.directions_boat),
+        label: const Text('nearest hosital'),
+        icon: const Icon(Icons.local_hospital_outlined),
       ),
     );
   }
