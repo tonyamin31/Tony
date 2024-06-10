@@ -12,19 +12,48 @@ class FinderPage extends StatefulWidget {
 }
 
 class MapSampleState extends State<FinderPage> {
-  final Completer<GoogleMapController> _controller =
-      Completer<GoogleMapController>();
+  static Position? position;
+  final Completer<GoogleMapController> _mapController = Completer();
 
-  static const CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(29.99644404285075, 30.965434496031975),
-    zoom: 14.4746,
+  static final CameraPosition _mycurrentLocationCameraPosition = CameraPosition(
+    bearing: 0.0,
+    target: LatLng(position!.latitude, position!.longitude),
+    tilt: 0.0,
+    zoom: 17,
   );
 
-  static const CameraPosition _kLake = CameraPosition(
-      bearing: 192.8334901395799,
-      target: LatLng(29.99749081198728, 30.967321616651674),
-      tilt: 59.440717697143555,
-      zoom: 19.151926040649414);
+  Future<void> getMyCurrentLocation() async {
+    await LocationHelper.determinePosition();
+
+    position = await Geolocator.getLastKnownPosition().whenComplete(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getMyCurrentLocation();
+  }
+
+  Widget buildMap() {
+    return GoogleMap(
+      initialCameraPosition: _mycurrentLocationCameraPosition,
+      mapType: MapType.normal,
+      myLocationEnabled: true,
+      zoomControlsEnabled: false,
+      myLocationButtonEnabled: false,
+      onMapCreated: (GoogleMapController controller) {
+        _mapController.complete(controller);
+      },
+    );
+  }
+
+  Future<void> _goToMyCurrentLocation() async {
+    final GoogleMapController controller = await _mapController.future;
+    controller.animateCamera(
+        CameraUpdate.newCameraPosition(_mycurrentLocationCameraPosition));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,24 +68,30 @@ class MapSampleState extends State<FinderPage> {
           },
         ),
       ),
-      body: GoogleMap(
-        mapType: MapType.normal,
-        zoomControlsEnabled: false,
-        initialCameraPosition: _kGooglePlex,
-        onMapCreated: (GoogleMapController controller) {
-          _controller.complete(controller);
-        },
+      body: Stack(
+        children: [
+          position != null
+              ? buildMap()
+              : Center(
+                  child: Container(
+                    child: const CircularProgressIndicator(
+                      color: Colors.blue,
+                    ),
+                  ),
+                )
+        ],
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: _goToTheLake,
-        label: const Text('nearest hosital'),
-        icon: const Icon(Icons.local_hospital_outlined),
+      floatingActionButton: Container(
+        margin: const EdgeInsets.fromLTRB(0, 0, 8, 30),
+        child: FloatingActionButton(
+          backgroundColor: Colors.blue,
+          onPressed: _goToMyCurrentLocation,
+          child: const Icon(
+            Icons.place_outlined,
+            color: Colors.white,
+          ),
+        ),
       ),
     );
-  }
-
-  Future<void> _goToTheLake() async {
-    final GoogleMapController controller = await _controller.future;
-    await controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
   }
 }
